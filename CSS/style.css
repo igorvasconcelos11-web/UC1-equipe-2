@@ -132,7 +132,7 @@ body {
     background-position: center; */
     width: 100%;
     height: 577px;
-    background-image: url("/IMG/WhatsApp\ Image\ 2026-08-21\ at\ 13.33.25.jpeg");
+    background-image: url("/v2_organizar/HOME/BANNER/WhatsApp\ Image\ 2026-08-21\ at\ 13.33.25.jpeg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -383,14 +383,23 @@ body {
 
 /* Card */
 
+/* Card */
 .card {
-    width: 250px;
+    display: flex;
 
-    height: 210px;
+    width: 342px;
+
+    height: 463px;
+
+    padding: 20px;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
 
     flex-shrink: 0;
-
-    padding: 10px;
 
     background-color: white;
 
@@ -403,6 +412,7 @@ body {
     transition: 0.2s;
 }
 
+
 .card:hover {
     transform: translateY(-3px);
 }
@@ -413,7 +423,7 @@ body {
 .card-imagem {
     width: 100%;
 
-    height: 120px;
+    flex: 1;
 
     border-radius: 6px;
 
@@ -421,6 +431,7 @@ body {
 
     background-color: #d394cf;
 }
+
 
 .card-imagem img {
     width: 100%;
@@ -503,14 +514,14 @@ body {
 
 /* FOOTER */
 
-.footer {
-    width: 100%;
-    height: 100px;          /* era 150px */
-    background-color: #e4f1fa;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 40px;     /* reduzi o padding vertical, mantive o horizontal */
+.footer {     
+display: flex;
+width: 1440px;
+height: 247px;
+padding: 19px 86px;
+justify-content: space-between;
+align-items: center;
+flex-shrink: 0;
 }
 
 
