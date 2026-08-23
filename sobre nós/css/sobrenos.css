@@ -1,0 +1,88 @@
+
+
+.banner-sobre {
+    position: relative;
+    background: linear-gradient(180deg, #3aa9e0, #2f8fd0);
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 60px 48px;
+}
+
+.sobre-conteudo {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    max-width: 600px;
+}
+
+.sobre-conteudo .rotulo {
+    display: block;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.sobre-conteudo h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.sobre-personagens-esq {
+    position: absolute;
+    left: 40px;
+    bottom: 0;
+    max-height: 260px;
+    z-index: 1;
+}
+
+.sobre-personagen-dir {
+    position: absolute;
+    right: 60px;
+    bottom: 20px;
+    max-height: 150px;
+    z-index: 1;
+}
+
+.sobre-donut {
+    position: absolute;
+    right: -40px;
+    top: -20px;
+    max-height: 220px;
+    transform: rotate(-10deg);
+    z-index: 1;
+}
+
+.historia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 48px;
+    background-color: #fbeaf3;
+}
+
+.texto-imagem img {
+    width: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.historia-texto p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #6a2c70;
+    margin-bottom: 20px;
+}
+
+.historia-texto p:last-child {
+    margin-bottom: 0;
+}
+
