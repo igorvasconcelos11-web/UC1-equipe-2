@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(135deg, #ffe5ec, #fff1d6);
+
+    padding: 20px;
+}
+
+#quiz {
+    width: 100%;
+    max-width: 600px;
+
+    background-color: white;
+
+    padding: 40px;
+
+    border-radius: 25px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+    text-align: center;
+}
+
+#quiz > h1 {
+    color: #7b294d;
+    margin-bottom: 35px;
+    font-size: 30px;
+}
+
+
+/* PERGUNTAS */
+
+.quiz-step {
+    display: none;
+}
+
+.quiz-step.active {
+    display: block;
+}
+
+.quiz-step h2 {
+    color: #333;
+    font-size: 22px;
+
+    margin-bottom: 25px;
+}
+
+
+/* BOTÕES DAS RESPOSTAS */
+
+.quiz-answer {
+    display: block;
+
+    width: 100%;
+
+    padding: 16px;
+    margin: 12px 0;
+
+    border: 2px solid #f1b6c8;
+    border-radius: 15px;
+
+    background-color: #fff7fa;
+
+    color: #5c3040;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.quiz-answer:hover {
+    background-color: #f8c8d8;
+
+    transform: translateY(-2px);
+
+    border-color: #d85b83;
+}
+
+
+/* RESULTADO */
+
+#results {
+    display: none;
+}
+
+#results.show {
+    display: block;
+}
+
+#results p:first-child {
+    color: #777;
+
+    font-size: 18px;
+
+    margin-bottom: 10px;
+}
+
+#result-title {
+    color: #7b294d;
+
+    font-size: 32px;
+
+    margin-bottom: 15px;
+}
+
+#result-description {
+    color: #555;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+}
+
+/* CONTAINER BASE */
+.result-images-container {
+    position: relative; /* Define que as imagens dentro dele vão usar esse espaço como limite */
+    width: 250px;       /* O mesmo tamanho que você já usava para o doce */
+    height: 250px;
+    margin: 20px auto 40px auto; /* Centraliza e dá um espaço extra embaixo para o personagem não cortar */
+}
+
+/* IMAGEM 1: DOCE (Fica no fundo) */
+#result-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    display: block;
+}
+
+/* IMAGEM 2: PERSONAGEM (Invade a imagem do doce) */
+#result-character {
+    position: absolute;
+    z-index: 10;        /* Garante que o personagem fique POR CIMA do doce */
+    
+    /* Controla a posição da invasão */
+    bottom: -20px;      /* Desce o personagem um pouco para fora do doce */
+    right: -60px;       /* Joga o personagem para a direita, invadindo a borda */
+    
+    width: 160px;       /* Ajuste o tamanho do personagem aqui */
+    height: auto;
+    
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3)); /*Cria uma sombra que contorna o personagem sem fundo */
+}
+
+/* BOTÃO REINICIAR */
+
+#restart {
+    border: none;
+
+    background-color: #7b294d;
+
+    color: white;
+
+    padding: 14px 25px;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#restart:hover {
+    background-color: #5e1e39;
+
+    transform: scale(1.03);
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 500px) {
+
+    #quiz {
+        padding: 25px;
+    }
+
+    #quiz > h1 {
+        font-size: 25px;
+    }
+
+    .quiz-step h2 {
+        font-size: 19px;
+    }
+
+    .quiz-answer {
+        font-size: 15px;
+    }
+
+}
+#result-image {
+    width: 250px;
+    height: 250px;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    margin: 20px auto;
+
+    display: block;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}

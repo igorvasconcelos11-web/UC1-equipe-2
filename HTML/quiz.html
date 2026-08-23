@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qual doce combina com você?</title>
+
+    <link rel="stylesheet" href="css/quiz.css">
+</head>
+
+<body>
+
+    <main id="quiz">
+
+        <h1>🍰 Qual doce combina com você?</h1>
+
+        <!-- PERGUNTA 1 -->
+        <section class="quiz-step active" data-question="1">
+
+            <h2>1. Qual dessas cores você prefere?</h2>
+
+            <button class="quiz-answer" data-value="1">
+                🟢 Verde 
+            </button>
+
+            <button class="quiz-answer" data-value="2">
+                🔴 Vermelho 
+            </button>
+
+            <button class="quiz-answer" data-value="3">
+                🔵 Azul 
+            </button>
+
+            <button class="quiz-answer" data-value="4">
+                🟡 Amarelo 
+            </button>
+
+        </section>
+
+
+        <!-- PERGUNTA 2 -->
+        <section class="quiz-step" data-question="2">
+
+            <h2>2. Qual bebida você prefere?</h2>
+
+            <button class="quiz-answer" data-value="1">
+                🥛 Leite 
+            </button>
+
+            <button class="quiz-answer" data-value="2">
+                🍵 Chá
+            </button>
+
+            <button class="quiz-answer" data-value="3">
+                🥤 Refrigerante
+            </button>
+
+            <button class="quiz-answer" data-value="4">
+                🧃 Suco
+            </button>
+
+        </section>
+
+
+        <!-- PERGUNTA 4 -->
+        <section class="quiz-step" data-question="3">
+
+            <h2>3. Qual estação você prefere?</h2>
+
+            <button class="quiz-answer" data-value="1">
+                ❄️ Inverno 
+            </button>
+
+            <button class="quiz-answer" data-value="2">
+                🌸 Primavera 
+            </button>
+
+            <button class="quiz-answer" data-value="3">
+                ☀️ Verão
+            </button>
+
+            <button class="quiz-answer" data-value="4">
+                🍂 Outono 
+            </button>
+
+        </section>
+
+
+        <!-- PERGUNTA 4 -->
+        <section class="quiz-step" data-question="4">
+
+            <h2>4. Qual combina mais com você?</h2>
+
+            <button class="quiz-answer" data-value="1">
+                😎 Clássico
+            </button>
+
+            <button class="quiz-answer" data-value="2">
+                ❤️ Romântico
+            </button>
+
+            <button class="quiz-answer" data-value="3">
+                ✨ Criativo
+            </button>
+
+            <button class="quiz-answer" data-value="4">
+                😋 Divertido
+            </button>
+
+        </section>
+
+
+        <!-- RESULTADO -->
+
+<section id="results">
+
+    <p>✨ O doce que mais combina com você é:</p>
+
+    <div class="result-images-container">
+    <img id="result-image" src="" alt="Doce recomendado">
+    <img id="result-character" src="" alt="Personagem do Doce">
+    </div>
+
+    <h2 id="result-title"></h2>
+
+    <p id="result-description"></p>
+
+    <button id="restart">
+        🔄 Fazer o quiz novamente
+    </button>
+
+</section>
+    </main>
+
+    <script src="js/quiz.js"></script>
+
+</body>
+</html>
