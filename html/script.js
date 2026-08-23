@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function fitFoodFrame() {
     if (!els.image.complete || !els.image.naturalWidth) return;
     // A moldura acompanha a proporção real da foto: ocupa toda a borda sem cortar o doce.
-    const hero = els.box.parentElement;
+    const hero = els.box.closest('.hero-section');
     const heroStyle = getComputedStyle(hero);
     const availableWidth = hero.clientWidth - parseFloat(heroStyle.paddingLeft) - parseFloat(heroStyle.paddingRight);
     const availableHeight = hero.clientHeight - parseFloat(heroStyle.paddingTop) - parseFloat(heroStyle.paddingBottom);
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (animate) fade.forEach(element => element.classList.add('is-changing'));
     window.setTimeout(() => {
       index = nextIndex; els.image.onload = fitFoodFrame; els.image.src = product.img; els.image.alt = product.title; els.character.dataset.cropped = 'false'; els.character.dataset.badge = 'false'; els.character.dataset.cutout = product.cutout ? 'true' : 'false'; els.character.dataset.side = product.characterSide || 'left'; els.character.dataset.anchor = product.characterAnchor || 'bottom'; els.character.dataset.size = product.characterSize || 'regular'; els.character.src = product.characterImg; els.character.alt = `Personagem relacionado a ${product.title}`; els.character.onload = fitCharacter; els.title.textContent = product.title; els.desc.textContent = product.desc; els.price.textContent = product.price; els.counter.textContent = `${String(index + 1).padStart(2, '0')}/${String(visibleProducts().length).padStart(2, '0')}`; els.tag.textContent = categoryLabel();
-      renderThumbnails(); if (els.character.complete) fitCharacter(); if (animate) requestAnimationFrame(() => fade.forEach(element => element.classList.remove('is-changing'))); changing = false;
+      renderThumbnails(); if (els.character.complete) fitCharacter(); if (animate) fade.forEach(element => element.classList.remove('is-changing')); changing = false;
     }, animate ? 220 : 0);
   }
   function setCategory(nextCategory) { category = nextCategory; index = nextCategory === 'todos' ? products.findIndex(product => product.featured) : 0; applyTheme(); document.querySelectorAll('.tab').forEach(tab => tab.classList.toggle('active', tab.dataset.category === category)); showProduct(index, false); }
