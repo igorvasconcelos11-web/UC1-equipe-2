@@ -1,0 +1,1827 @@
+:root {
+  --pink: #fff0f5;
+  --ink: #392f3c;
+  --purple: #8e5cf3;
+  --hot: #f65b9c;
+  --line: #f1dce6;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  background: radial-gradient(
+    circle at 50% 10%,
+    #fff 0,
+    #fff4f7 42%,
+    #fdeaf0 100%
+  );
+  color: var(--ink);
+  font-family: Nunito, Arial, sans-serif;
+}
+.game-shell {
+  max-width: 1240px;
+  margin: auto;
+  padding: 20px 34px 30px;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 800;
+}
+.brand i {
+  color: #ff559b;
+  margin-right: 9px;
+}
+.brand b {
+  color: var(--purple);
+}
+.score {
+  font-size: 12px;
+  font-weight: 800;
+  color: #925fd5;
+  background: #fff;
+  border: 1px solid #f3e6fa;
+  padding: 8px 12px;
+  border-radius: 20px;
+}
+.factory {
+  height: 430px;
+  position: relative;
+  padding-top: 24px;
+}
+.machines {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8%;
+  height: 95px;
+}
+.machine {
+  position: relative;
+  width: 42px;
+  height: 29px;
+  background: var(--c);
+  border: 2px solid #3e3442;
+  border-radius: 6px 6px 12px 12px;
+  box-shadow: inset 0 -6px rgba(0, 0, 0, 0.08);
+}
+.machine:before {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 38px;
+  background: var(--c);
+  border: 2px solid #3e3442;
+  border-bottom: 0;
+  left: 14px;
+  bottom: 27px;
+}
+.machine:after {
+  content: "";
+  position: absolute;
+  width: 31px;
+  height: 4px;
+  border: 2px solid #3e3442;
+  border-top: 0;
+  left: 3px;
+  bottom: -8px;
+}
+.pink {
+  --c: #ff75ad;
+}
+.cocoa {
+  --c: #64463d;
+}
+.berry {
+  --c: #ff75ad;
+}
+.lime {
+  --c: #9be034;
+}
+.mango {
+  --c: #ffad20;
+}
+.game-area {
+  display: grid;
+  grid-template-columns: 165px 1fr 165px;
+  gap: 26px;
+  align-items: center;
+  height: 230px;
+}
+.progress-card,
+.helper-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 17px 14px;
+  box-shadow: 0 10px 24px rgba(151, 89, 117, 0.09);
+}
+.progress-card p {
+  font-size: 10px;
+  font-weight: 900;
+  margin: 0 0 11px;
+}
+.progress-card ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.progress-card li {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 7px 0;
+  color: #746d76;
+}
+.progress-card li span {
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #fae9f1;
+  color: #825e71;
+  font-size: 10px;
+}
+.progress-card li.active {
+  color: var(--purple);
+}
+.progress-card li.active span {
+  background: var(--purple);
+  color: white;
+  box-shadow: 0 4px 9px #cbb8fb;
+}
+.progress-card li.done span {
+  background: #ecdcff;
+  color: #7f4fe9;
+}
+.sweet-station {
+  position: relative;
+  height: 210px;
+  display: grid;
+  place-items: center;
+}
+.station-glow {
+  position: absolute;
+  width: 240px;
+  height: 70px;
+  bottom: 10px;
+  border-radius: 50%;
+  background: #ffe2ed;
+  filter: blur(15px);
+}
+.dessert {
+  --base: #d79a55;
+  --fill: #6d3f27;
+  --coat: #f66fac;
+  --sprinkle: #ffdc53;
+  position: relative;
+  width: 145px;
+  height: 150px;
+  z-index: 2;
+  filter: drop-shadow(0 12px 7px rgba(112, 55, 87, 0.15));
+}
+.plate {
+  position: absolute;
+  width: 145px;
+  height: 22px;
+  bottom: 2px;
+  background: #fff;
+  border: 2px solid #eadde3;
+  border-radius: 50%;
+  z-index: 0;
+}
+.cake-body {
+  position: absolute;
+  bottom: 18px;
+  left: 24px;
+  width: 98px;
+  height: 72px;
+  background: var(--base);
+  border-radius: 12px 12px 27px 27px;
+  border: 2px solid rgba(77, 40, 30, 0.25);
+  z-index: 1;
+}
+.cake-body:after {
+  content: "";
+  position: absolute;
+  inset: 9px 10px;
+  background: radial-gradient(circle, #fff4 1px, transparent 2px) 0 0/15px 15px;
+  opacity: 0.6;
+}
+.filling {
+  position: absolute;
+  left: 22px;
+  bottom: 58px;
+  width: 102px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--fill);
+  border: 2px solid rgba(77, 40, 30, 0.18);
+  z-index: 2;
+}
+.frosting {
+  position: absolute;
+  left: 17px;
+  bottom: 65px;
+  width: 112px;
+  height: 50px;
+  background: var(--coat);
+  border-radius: 53% 53% 34% 34%;
+  z-index: 3;
+  border: 2px solid rgba(141, 38, 86, 0.2);
+}
+.frosting:after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 8px;
+  width: 92px;
+  height: 18px;
+  background: radial-gradient(
+      circle at 8px 1px,
+      var(--coat) 9px,
+      transparent 10px
+    )
+    0 0/23px 19px;
+}
+.topping-layer,
+.decor-layer {
+  z-index: 4;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.topping-layer:after {
+  content: "";
+  position: absolute;
+  top: 43px;
+  left: 29px;
+  width: 88px;
+  height: 40px;
+  background:
+    radial-gradient(
+      ellipse at 12px 10px,
+      var(--sprinkle) 0 3px,
+      transparent 4px
+    ),
+    radial-gradient(ellipse at 35px 5px, #fff 0 3px, transparent 4px),
+    radial-gradient(ellipse at 54px 20px, #9c6cff 0 3px, transparent 4px),
+    radial-gradient(ellipse at 76px 8px, #64d6bd 0 3px, transparent 4px);
+}
+.decor-layer:after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 61px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #e82757;
+  box-shadow:
+    inset -5px -5px #bb1740,
+    11px 15px 0 -6px #fff;
+  opacity: 0;
+}
+.dessert.no-filling .filling,
+.dessert.no-coat .frosting,
+.dessert.no-top .topping-layer,
+.dessert.no-decor .decor-layer {
+  opacity: 0;
+}
+.dessert.has-decor .decor-layer:after {
+  opacity: 1;
+  animation: pop 0.45s both;
+}
+.dessert.donut .cake-body {
+  border-radius: 50%;
+  height: 82px;
+  bottom: 17px;
+}
+.dessert.donut .cake-body:before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff0f5;
+  left: 32px;
+  top: 22px;
+}
+.dessert.icecream .cake-body {
+  clip-path: polygon(15% 0, 85% 0, 65% 100%, 35% 100%);
+  border-radius: 0;
+  background: #d99851;
+}
+.dessert.bolo .cake-body {
+  height: 90px;
+  border-radius: 12px;
+}
+.helper-card {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+.helper-card i {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 8px;
+  border-radius: 50%;
+  color: #f959a0;
+  background: #fee7f1;
+  font-size: 18px;
+}
+.belt {
+  height: 40px;
+  background: #393039;
+  border: 2px solid #292128;
+  border-radius: 6px;
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 0 #d5c2ca;
+}
+.belt-track {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  animation: move 2.6s linear infinite;
+}
+.belt-track span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #f6dce8;
+  border: 1px solid #171119;
+}
+.belt-items {
+  position: absolute;
+  display: flex;
+  gap: 110px;
+  align-items: center;
+  left: -70px;
+  bottom: 50px;
+  opacity: 0.75;
+  animation: move 10s linear infinite;
+  color: #f878af;
+}
+.belt-items i {
+  font-size: 20px;
+}
+.console {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 21px;
+  box-shadow: 0 16px 36px rgba(165, 95, 126, 0.12);
+}
+.console-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+.console h1 {
+  font-size: 18px;
+  margin: 0 0 3px;
+  font-weight: 900;
+}
+.console p {
+  font-size: 11px;
+  margin: 0;
+  color: #8d838b;
+}
+.step-badge {
+  background: #f5edff;
+  color: #8355e9;
+  border-radius: 20px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 900;
+}
+.options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+.option {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  min-height: 112px;
+  padding: 13px;
+  cursor: pointer;
+  transition: 0.25s;
+  text-align: center;
+  font: inherit;
+  color: var(--ink);
+  font-weight: 900;
+}
+.option:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px #efdce6;
+}
+.option.selected {
+  border: 2px solid var(--purple);
+  box-shadow: 0 9px 18px #d9c7ff;
+  transform: translateY(-2px);
+}
+.option i {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin: 0 auto 8px;
+  background: var(--soft);
+  color: var(--accent);
+  font-size: 20px;
+}
+
+/* Miniaturas cartoon dos doces e ingredientes — mantém o layout original. */
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  padding: 7px 10px 9px;
+}
+.option-label { line-height: 1.1; }
+.option-image {
+  width: 76px;
+  height: 62px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 2px #6b385633);
+  transition: transform .2s ease;
+}
+.option:hover .option-image { transform: translateY(-2px) rotate(-2deg) scale(1.05); }
+.ingredient-thumb {
+  --flavour: var(--accent);
+  position: relative;
+  display: block;
+  width: 74px;
+  height: 58px;
+  flex: 0 0 58px;
+  filter: drop-shadow(0 4px 2px #6b385633);
+}
+.ingredient-thumb.filling:before {
+  content: ""; position: absolute; left: 8px; right: 8px; top: 13px; height: 30px;
+  border: 3px solid #61384b; border-radius: 50% 50% 42% 42%;
+  background: radial-gradient(ellipse at 30% 22%, #fff9 0 5px, transparent 6px), var(--flavour);
+  box-shadow: inset 0 -7px #0002;
+}
+.ingredient-thumb.filling:after {
+  content: ""; position: absolute; left: 15px; top: 7px; width: 42px; height: 13px;
+  border-radius: 50%; border: 3px solid #61384b; background: color-mix(in srgb,var(--flavour),white 22%);
+}
+.ingredient-thumb.coat:before {
+  content: ""; position: absolute; left: 9px; top: 8px; width: 56px; height: 38px;
+  border: 3px solid #61384b; border-radius: 52% 52% 34% 34%;
+  background: radial-gradient(ellipse at 28% 22%,#fff9 0 6px,transparent 7px),var(--flavour);
+  clip-path: polygon(0 0,100% 0,100% 65%,87% 91%,73% 66%,58% 100%,43% 67%,28% 91%,14% 65%,0 86%);
+}
+.ingredient-thumb.top:before {
+  content: ""; position: absolute; inset: 8px; border: 3px solid #61384b; border-radius: 50%;
+  background: var(--thumb-pattern,#f9c743); box-shadow: inset 0 0 0 5px #fff6;
+}
+.ingredient-thumb.decor:before { position:absolute; inset:0; display:grid; place-items:center; font-size:43px; line-height:1; }
+.ingredient-thumb.chocolate { --flavour:#75402c; }
+.ingredient-thumb.morango { --flavour:#f0648e; }
+.ingredient-thumb.baunilha,.ingredient-thumb.branca { --flavour:#fff1c5; }
+.ingredient-thumb.doce-de-leite,.ingredient-thumb.caramelo { --flavour:#d78c42; }
+.ingredient-thumb.granulado { --thumb-pattern:repeating-linear-gradient(40deg,#7042a0 0 3px,#ff6f8e 3px 6px,#ffd34a 6px 9px,#55b9d8 9px 12px); }
+.ingredient-thumb.confetes { --thumb-pattern:radial-gradient(circle at 25% 25%,#ff526f 0 5px,transparent 6px),radial-gradient(circle at 70% 28%,#52c9c0 0 5px,transparent 6px),radial-gradient(circle at 45% 70%,#8962e7 0 5px,transparent 6px),#ffd94f; }
+.ingredient-thumb.frutas { --thumb-pattern:radial-gradient(circle at 30% 35%,#ed4e68 0 9px,transparent 10px),radial-gradient(circle at 65% 55%,#7652bd 0 9px,transparent 10px),#89c94c; }
+.ingredient-thumb.top.chocolate { --thumb-pattern:radial-gradient(ellipse at 28% 30%,#3e2118 0 7px,transparent 8px),radial-gradient(ellipse at 68% 65%,#633522 0 8px,transparent 9px),#e7ae69; }
+.ingredient-thumb.cereja:before { content:"🍒"; }
+.ingredient-thumb.estrela:before { content:"⭐"; }
+.ingredient-thumb.coracao:before { content:"💗"; }
+.ingredient-thumb.vela:before { content:"🕯️"; }
+
+.decor-fallback { display:none; position:absolute; z-index:8; left:50%; top:2px; transform:translateX(-50%); font-size:34px; filter:drop-shadow(0 3px 1px #562b4533); }
+.dessert.has-decor .decor-fallback { display:block; animation:pop .45s both; }
+.dessert.decor-cereja .decor-fallback:before { content:"🍒"; }
+.dessert.decor-estrela .decor-fallback:before { content:"⭐"; }
+.dessert.decor-coracao .decor-fallback:before { content:"💗"; }
+.dessert.decor-vela .decor-fallback:before { content:"🕯️"; }
+.dessert .filling,.dessert .frosting,.dessert .topping-layer { transition:opacity .25s ease; }
+.dessert.bolo .filling { display:none !important; } /* o recheio do bolo já está desenhado no PNG */
+.console-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 17px;
+}
+.nav-actions {
+  display: flex;
+  gap: 10px;
+}
+button {
+  font-family: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+.exit-btn,
+.back-btn {
+  border: 1px solid #eadce3;
+  background: #fff;
+  color: #6c626c;
+  padding: 10px 15px;
+  border-radius: 22px;
+  font-size: 12px;
+}
+.back-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.next-btn {
+  border: 0;
+  background: var(--purple);
+  color: #fff;
+  border-radius: 23px;
+  padding: 11px 18px;
+  font-size: 12px;
+  box-shadow: 0 7px 13px #d9c7ff;
+  transition: 0.2s;
+}
+.next-btn:hover {
+  transform: translateY(-2px);
+  background: #7a42ed;
+}
+.toast {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translate(-50%, -110px);
+  background: #392f3c;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 18px;
+  font-size: 12px;
+  font-weight: 800;
+  transition: 0.3s;
+  z-index: 10;
+}
+.toast.show {
+  transform: translate(-50%, 0);
+}
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(63, 29, 54, 0.42);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.25s;
+  z-index: 20;
+}
+.modal.open {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-card {
+  width: min(410px, calc(100% - 30px));
+  background: #fff;
+  border-radius: 28px;
+  padding: 27px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  animation: pop 0.5s both;
+}
+.finish-icon {
+  width: 62px;
+  height: 62px;
+  margin: auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: linear-gradient(135deg, #fd69a5, #935af2);
+  font-size: 26px;
+}
+.eyebrow {
+  font-size: 10px !important;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+  color: #9b65e9;
+  margin: 16px 0 3px !important;
+}
+.modal h2 {
+  margin: 0;
+  font-size: 25px;
+}
+.modal .dessert {
+  margin: 15px auto 19px;
+  transform: scale(0.82);
+  height: 128px;
+}
+.confetti {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.confetti i {
+  position: absolute;
+  width: 9px;
+  height: 18px;
+  background: var(--c);
+  animation: fall 1.8s linear infinite;
+}
+.animate .cake-body,
+.animate .filling,
+.animate .frosting,
+.animate .topping-layer {
+  animation: ingredient 0.5s both;
+}
+@keyframes move {
+  to {
+    transform: translateX(110px);
+  }
+}
+@keyframes ingredient {
+  from {
+    opacity: 0;
+    transform: translateY(-28px) scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes pop {
+  0% {
+    transform: scale(0.65);
+    opacity: 0;
+  }
+  75% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes fall {
+  from {
+    transform: translateY(-40px) rotate(0);
+  }
+  to {
+    transform: translateY(110vh) rotate(520deg);
+  }
+}
+@media (max-width: 720px) {
+  .game-shell {
+    padding: 14px;
+  }
+  .factory {
+    height: 395px;
+  }
+  .game-area {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    height: 245px;
+  }
+  .sweet-station {
+    grid-column: 1/3;
+    grid-row: 1;
+    height: 155px;
+  }
+  .progress-card {
+    grid-row: 2;
+  }
+  .helper-card {
+    grid-row: 2;
+  }
+  .belt {
+    left: 5%;
+    right: 5%;
+    bottom: 16px;
+  }
+  .machines {
+    padding: 0 5%;
+  }
+  .options {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .console {
+    padding: 16px;
+  }
+  .console h1 {
+    font-size: 15px;
+  }
+  .console-actions {
+    gap: 8px;
+  }
+  .exit-btn {
+    display: none;
+  }
+  .topbar {
+    margin-bottom: 4px;
+  }
+}
+
+/* Camadas específicas do donut: recheio interno e glacê em anel. */
+.dessert.no-coat .frosting { display: none; }
+.dessert.donut .cake-body { left: 19px; bottom: 17px; width: 108px; height: 76px; border-radius: 50%; background: linear-gradient(135deg,#d99a54,#b96836); border-color: #753f2b; }
+.dessert.donut .cake-body:before { content: ""; position: absolute; width: 31px; height: 31px; top: 20px; left: 35px; border-radius: 50%; background: #fff7ed; box-shadow: inset 2px 2px 3px #fff, inset -3px -3px 4px #c77a64; }
+.dessert.donut .cake-body:after { inset: 9px 12px; opacity: .38; }
+.dessert.donut .filling { display: none; }
+.dessert.donut.has-filling .cake-body:before { background: var(--fill); box-shadow: inset 2px 2px 3px #fff6, inset -3px -3px 4px #0004; }
+.dessert.donut .frosting { left: 18px; bottom: 34px; width: 110px; height: 70px; border-radius: 50%; border: 3px solid color-mix(in srgb,var(--coat),#6d3155 38%); box-shadow: inset 6px 7px #fff4, inset -5px -8px #0002; z-index: 3; mask: radial-gradient(circle 19px at 50% 53%,transparent 95%,#000 100%); -webkit-mask: radial-gradient(circle 19px at 50% 53%,transparent 95%,#000 100%); }
+.dessert.donut .frosting:after { display: none; }
+.dessert.donut .topping-layer:after { top: 38px; left: 28px; width: 90px; height: 48px; border-radius: 50%; mask: radial-gradient(circle 20px at 50% 53%,transparent 94%,#000 100%); -webkit-mask: radial-gradient(circle 20px at 50% 53%,transparent 94%,#000 100%); }
+.dessert.donut .decor-layer:after { top: 18px; left: 61px; }
+@media (max-width: 390px) {
+  .score {
+    display: none;
+  }
+  .console-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .nav-actions {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+  }
+  .nav-actions button {
+    width: 100%;
+  }
+}
+
+/* Fábrica de brinquedo — volumes, cores fortes e painel arcade. */
+body { background: linear-gradient(#ef7397 0 53%, #b7e9ef 53% 72%, #5d5b8e 72%); min-height: 100vh; overflow-x: hidden; }
+body:after { content: ""; position: fixed; inset: 72% 0 0; background: conic-gradient(#7773a7 25%, #4b496f 0 50%, #7773a7 0 75%, #4b496f 0) 0 0 / 78px 78px; z-index: -1; }
+.game-shell { max-width: 1420px; padding: 14px 28px 34px; }.topbar { padding: 6px 12px; }.brand { color: white; font-size: 24px; text-shadow: 0 2px #7c3d64; }.brand i,.brand b { color: #ffec58; }.score { color: #6c3765; border: 3px solid #6b426b; background: #8eeafa; box-shadow: inset 0 0 0 3px #dffeff,0 4px #6f456b; }
+.factory { height: 470px; padding-top: 6px; background: linear-gradient(90deg,transparent 9%,rgba(255,255,255,.1) 9% 11%,transparent 11% 89%,rgba(255,255,255,.1) 89% 91%,transparent 91%); }.machines { height: 145px; align-items: start; padding: 0 10%; }.machine { width: 80px; height: 55px; border: 4px solid #583850; border-radius: 18px 18px 28px 28px; box-shadow: inset 0 -10px rgba(62,26,69,.18),0 6px #a8396f; }.machine:before { width: 18px; height: 67px; border-width: 4px; left: 27px; bottom: 53px; }.machine:after { width: 59px; height: 9px; border-width: 4px; left: 6px; bottom: -14px; background: #f5d5ea; }
+.game-area { grid-template-columns: 180px 1fr 180px; height: 248px; }.progress-card,.helper-card { border: 4px solid #8a4e82; border-radius: 17px; background: linear-gradient(#fff,#ffe9f2); box-shadow: 0 7px #a84676,0 12px 22px #813c6855; }.progress-card li span { width: 25px; height: 25px; }.progress-card li.active span { box-shadow: 0 3px #43279a; }.helper-card i { background: #ff6ba8; color: white; border: 3px solid #9b3e71; box-shadow: 0 3px #a23d72; }.dessert { transform: scale(1.22); filter: drop-shadow(0 16px 8px #57234566); }.station-glow { width: 300px; height: 100px; background: #fff45e; opacity: .75; }.plate { border: 3px solid #a75c69; box-shadow: 0 4px #d57778; }.cake-body,.filling,.frosting { border-width: 3px; }
+.belt { height: 86px; left: 10%; right: 10%; bottom: 12px; border: 5px solid #403548; border-radius: 8px; background: repeating-linear-gradient(110deg,#4c4a52 0 55px,#777378 56px 106px,#414149 107px 156px); box-shadow: 0 7px #633958; }.belt-track { display: none; }.belt-items { bottom: 27px; gap: 155px; color: #fff36a; animation-duration: 8s; text-shadow: 0 3px #a02b6d; }.belt-items i { font-size: 30px; }
+.console { border: 5px solid #78c3cf; border-radius: 18px; background: linear-gradient(#dcfbff,#b3e8ef); box-shadow: 0 8px #5898ad,0 17px 25px #47305666; padding: 18px 22px; }.console h1 { color: #542e5d; font-size: 20px; }.console p { color: #5a5275; font-weight: 800; }.step-badge { background: #745ae4; color: white; border: 3px solid #4834a3; box-shadow: 0 3px #3b2c88; }.option { border: 4px solid #bb683f; border-radius: 13px; background: linear-gradient(135deg,#fffad0,#ffe7a0); box-shadow: 0 5px #9c4a37,inset 0 0 0 2px #fff8db; color: #53304e; font-size: 14px; }.option i { background: #ff8dc0; border: 3px solid #a34373; color: white; box-shadow: 0 3px #c95a8c; }.option.selected { border-color: #5d48d9; background: linear-gradient(135deg,#effeff,#a9eafa); box-shadow: 0 5px #4031a0,0 0 18px #fff77a; }.exit-btn,.back-btn { border: 3px solid #76516b; border-radius: 10px; background: #fff3df; box-shadow: 0 3px #b86b78; }.next-btn { border: 3px solid #4a2d98; border-radius: 13px; background: linear-gradient(#a878ff,#7043dc); box-shadow: 0 5px #3f278b; }.modal-card { border: 6px solid #ffda4e; background: linear-gradient(#fffdf5,#ffe6f1); box-shadow: 0 10px #b74379; }.finish-icon { border: 4px solid #8a3b8a; box-shadow: 0 4px #893766; }
+@media (max-width: 720px) { .factory { height: 420px; }.machines { height: 112px; }.machine { transform: scale(.7); }.belt { left: 3%; right: 3%; height: 58px; }.belt-items { bottom: 15px; }.game-area { height: 225px; }.dessert { transform: scale(1); }.console { padding: 15px; }.option { min-height: 105px; } }
+
+/* Aplicadores do laboratorio: cada etapa usa uma forma propria. */
+.dessert .filling { height: 18px; background: radial-gradient(circle at 25% 25%, #fff7 0 3px, transparent 4px), linear-gradient(115deg, #3e2119, var(--fill) 42%, #8b5536); box-shadow: 0 3px 2px #4a243533, inset 0 3px 4px #fff3, inset 0 -4px 5px #0003; animation: filling-pour .65s both; }
+.dessert.icecream .filling { left: 31px; bottom: 66px; width: 83px; height: 45px; border-radius: 50% 50% 42% 42%; background: radial-gradient(circle at 32% 25%, #fff8 0 5px, transparent 6px), linear-gradient(145deg, #fff3, transparent 35%), var(--fill); box-shadow: inset -7px -7px 8px #0002, inset 6px 4px 7px #fff5, 0 3px 4px #62352255; }
+.dessert.icecream .frosting { bottom: 92px; height: 27px; border-radius: 50%; }
+.dessert.bolo .filling { bottom: 62px; width: 102px; }
+.dessert.has-filling .filling { opacity: 1; }
+@keyframes filling-pour { from { opacity: 0; transform: translateY(-24px) scaleX(.7); } to { opacity: 1; transform: translateY(0) scaleX(1); } }
+
+/* A cobertura recebe brilho, volume e uma queda compativel com cada sabor. */
+.dessert .frosting { background: linear-gradient(145deg, #fff8 0 9%, transparent 18%), linear-gradient(115deg, #0002, transparent 35%), var(--coat); box-shadow: inset 8px 7px 8px #fff4, inset -7px -9px 8px #0002, 0 4px 3px #54223833; }
+.dessert .frosting:after { height: 25px; bottom: -14px; background: radial-gradient(ellipse at 9px 3px, var(--coat) 0 9px, transparent 10px) 0 0/23px 22px; filter: drop-shadow(0 2px 2px #54223833); }
+.dessert.coat-chocolate .frosting { background: linear-gradient(145deg, #fff4, transparent 25%), linear-gradient(115deg, #3d1b13, #71402c 50%, #9c6042); }
+.dessert.coat-morango .frosting { background: linear-gradient(145deg, #fff7, transparent 24%), linear-gradient(115deg, #c52d58, #f565a3 58%, #ff9abb); }
+.dessert.coat-branca .frosting { background: linear-gradient(145deg, #fff, #fff8 45%, #e8cfd4); }
+.dessert.coat-caramelo .frosting { background: linear-gradient(145deg, #fff6, transparent 25%), linear-gradient(115deg, #a85c27, #d6954a 52%, #efbd6b); }
+
+/* Toppings com forma propria, em vez de emojis soltos. */
+.dessert .topping-layer:after { content: ""; top: 39px; left: 26px; width: 94px; height: 43px; background: none; }
+.dessert.top-granulado .topping-layer:after { background: radial-gradient(ellipse at 8% 25%, #6d3d91 0 2px, transparent 3px), radial-gradient(ellipse at 22% 60%, #f15c78 0 2px, transparent 3px), radial-gradient(ellipse at 38% 20%, #55b9d8 0 2px, transparent 3px), radial-gradient(ellipse at 52% 68%, #f4bf3d 0 2px, transparent 3px), radial-gradient(ellipse at 68% 30%, #e45b72 0 2px, transparent 3px), radial-gradient(ellipse at 84% 65%, #6d3d91 0 2px, transparent 3px), radial-gradient(ellipse at 93% 18%, #55b9d8 0 2px, transparent 3px); transform: rotate(-4deg); }
+.dessert.top-confetes .topping-layer:after { background: radial-gradient(circle at 12% 40%, #ff5e75 0 5px, transparent 6px), radial-gradient(circle at 34% 12%, #54c9bd 0 5px, transparent 6px), radial-gradient(circle at 54% 55%, #ffd344 0 5px, transparent 6px), radial-gradient(circle at 78% 22%, #8c63ee 0 5px, transparent 6px), radial-gradient(circle at 91% 70%, #f28b45 0 5px, transparent 6px); }
+.dessert.top-frutas .topping-layer:after { background: radial-gradient(circle at 20% 48%, #ef4e68 0 8px, #b92345 9px 10px, transparent 11px), radial-gradient(circle at 49% 25%, #ffd34d 0 8px, #e7a922 9px 10px, transparent 11px), radial-gradient(circle at 77% 53%, #8b62dc 0 8px, #55369c 9px 10px, transparent 11px); }
+.dessert.top-chocolate .topping-layer:after { background: radial-gradient(ellipse at 12% 25%, #3e2118 0 3px, transparent 4px), radial-gradient(ellipse at 31% 62%, #5d3020 0 3px, transparent 4px), radial-gradient(ellipse at 53% 22%, #3e2118 0 3px, transparent 4px), radial-gradient(ellipse at 74% 58%, #6e3b25 0 3px, transparent 4px), radial-gradient(ellipse at 91% 30%, #3e2118 0 3px, transparent 4px); filter: drop-shadow(2px 3px 1px #24120d88); }
+
+/* Decorações com anatomia propria, especialmente a vela. */
+.dessert .decor-layer:after { content: ""; top: 16px; left: 61px; width: 25px; height: 25px; background: none; box-shadow: none; opacity: 0; }
+.dessert.decor-cereja .decor-layer:after { opacity: 1; border-radius: 50%; background: radial-gradient(circle at 30% 25%, #fff9 0 3px, transparent 4px), linear-gradient(135deg, #ff5572, #ae143d); box-shadow: 0 3px 3px #71152e66; }
+.dessert.decor-estrela .decor-layer:after { content: "★"; opacity: 1; color: #ffd03f; font-size: 35px; line-height: 25px; text-shadow: 0 2px 2px #a46f1d; }
+.dessert.decor-coracao .decor-layer:after { content: "♥"; opacity: 1; color: #ed3f69; font-size: 36px; line-height: 25px; text-shadow: 0 2px 2px #a51f42; }
+.dessert.decor-vela .decor-layer:after { opacity: 1; left: 66px; top: 8px; width: 15px; height: 40px; border-radius: 4px 4px 3px 3px; background: repeating-linear-gradient(90deg, #fff 0 4px, #8d5cf0 4px 8px); box-shadow: 0 2px 3px #562f6855; }
+.dessert.decor-vela .decor-layer:before { content: ""; position: absolute; left: 66px; top: -7px; width: 15px; height: 18px; border-radius: 50%; background: radial-gradient(circle at 50% 70%, #fff3a0 0 3px, #ff9b24 4px 8px, transparent 9px); animation: flame 1s ease-in-out infinite alternate; z-index: 2; }
+@keyframes flame { to { transform: translateY(-2px) scale(.86); filter: brightness(1.2); } }
+
+.dessert.animate { animation: station-bump .5s ease-out both; }
+@keyframes station-bump { 0% { transform: scale(1.22) translateY(-7px); } 55% { transform: scale(1.22) translateY(2px); } 100% { transform: scale(1.22); } }
+@media (max-width: 720px) { .dessert.animate { animation-name: station-bump-mobile; } }
+@keyframes station-bump-mobile { 0% { transform: scale(1) translateY(-7px); } 55% { transform: scale(1) translateY(2px); } 100% { transform: scale(1); } }
+
+/* Artes oficiais das bases: as camadas de sabor continuam interativas por cima. */
+.dessert .base-art {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 12px 7px rgba(112, 55, 87, 0.18));
+}
+.dessert .plate,
+.dessert .cake-body { display: none; }
+.dessert.cupcake .base-art { width: 148px; height: 148px; }
+.dessert.cupcake.has-filling .filling,
+.dessert.cupcake.has-coat .frosting {
+  display: none !important;
+}
+.dessert.cupcake.has-filling .base-art {
+  width: 174px;
+  height: 174px;
+}
+.dessert.bolo .base-art { width: 164px; height: 164px; }
+.dessert.icecream .base-art { width: 138px; height: 168px; }
+.dessert.donut .base-art { width: 150px; height: 150px; }
+.dessert.donut .frosting { display: block; }
+.dessert.donut .filling { display: block; }
+.dessert.donut .topping-layer { display: block; }
+.dessert.donut .decor-layer { display: none; }
+.dessert.donut.has-filling .filling,
+.dessert.donut.has-coat .frosting {
+  display: none !important;
+}
+.dessert.donut.has-filling .base-art {
+  width: 176px;
+  height: 176px;
+}
+.dessert.donut.has-top .topping-layer {
+  display: block !important;
+  position: absolute;
+  left: -8px;
+  top: -8px;
+  width: 161px;
+  height: 161px;
+  z-index: 5;
+  pointer-events: none;
+}
+.dessert.donut.has-top .topping-layer:after {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-mask: radial-gradient(circle at 50% 50%, transparent 0 31px, #000 32px 66px, transparent 67px);
+          mask: radial-gradient(circle at 50% 50%, transparent 0 31px, #000 32px 66px, transparent 67px);
+}
+.dessert.donut.top-granulado .topping-layer:after {
+  background:
+    linear-gradient(25deg,#ffe04b,#ffe04b) 25% 22%/8px 3px no-repeat,
+    linear-gradient(110deg,#43c8ea,#43c8ea) 43% 14%/8px 3px no-repeat,
+    linear-gradient(55deg,#ff6b91,#ff6b91) 63% 20%/8px 3px no-repeat,
+    linear-gradient(145deg,#ffe04b,#ffe04b) 77% 34%/8px 3px no-repeat,
+    linear-gradient(20deg,#43c8ea,#43c8ea) 83% 55%/8px 3px no-repeat,
+    linear-gradient(100deg,#ff6b91,#ff6b91) 72% 73%/8px 3px no-repeat,
+    linear-gradient(40deg,#ffe04b,#ffe04b) 52% 82%/8px 3px no-repeat,
+    linear-gradient(125deg,#43c8ea,#43c8ea) 32% 77%/8px 3px no-repeat,
+    linear-gradient(65deg,#ff6b91,#ff6b91) 17% 62%/8px 3px no-repeat,
+    linear-gradient(155deg,#ffe04b,#ffe04b) 16% 39%/8px 3px no-repeat,
+    linear-gradient(15deg,#43c8ea,#43c8ea) 37% 34%/7px 3px no-repeat,
+    linear-gradient(120deg,#ff6b91,#ff6b91) 61% 49%/7px 3px no-repeat;
+}
+.dessert.donut.top-confetes .topping-layer:after {
+  background:
+    radial-gradient(circle, #ffdd47 0 4px, transparent 5px) 5px 7px/31px 29px,
+    radial-gradient(circle, #50c8df 0 4px, transparent 5px) 18px 2px/38px 35px,
+    radial-gradient(circle, #ff6a92 0 4px, transparent 5px) 1px 18px/35px 32px;
+}
+.dessert.donut.top-frutas .topping-layer:after {
+  background:
+    radial-gradient(circle at 45% 45%, #ff879b 0 5px, #d92c52 6px 8px, transparent 9px) 4px 7px/43px 39px,
+    radial-gradient(circle at 45% 45%, #7460c8 0 4px, #45348b 5px 7px, transparent 8px) 19px 2px/39px 37px,
+    radial-gradient(ellipse, #6dbf43 0 4px, transparent 5px) 8px 1px/37px 31px;
+}
+.dessert.donut.top-chocolate .topping-layer:after {
+  background:
+    radial-gradient(ellipse, #4c2519 0 5px, transparent 6px) 4px 7px/34px 29px,
+    radial-gradient(ellipse, #75402b 0 5px, transparent 6px) 18px 2px/39px 35px,
+    radial-gradient(ellipse, #35170f 0 4px, transparent 5px) 2px 19px/31px 32px;
+}
+
+/* Tela final inspirada em uma ficha de produção de confeitaria. */
+.modal {
+  padding: 24px;
+  background: rgba(49, 37, 48, .58);
+  overflow-y: auto;
+}
+.finish-wrap {
+  width: min(780px, 100%);
+  position: relative;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+}
+.success-ribbon {
+  color: #fff;
+  background: linear-gradient(135deg, #ffad17, #ff9815);
+  border-radius: 16px;
+  padding: 10px 28px;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: capitalize;
+  box-shadow: 0 7px 0 #d9791d, 0 12px 24px #5f344455;
+  animation: pop .45s both;
+}
+.success-ribbon i { margin: 0 7px; }
+.modal-card {
+  width: 100%;
+  padding: 30px 34px;
+  border: 2px solid #dfeaff;
+  border-radius: 25px;
+  display: grid;
+  grid-template-columns: minmax(260px, .95fr) minmax(300px, 1.12fr);
+  gap: 35px;
+  align-items: stretch;
+  text-align: left;
+  box-shadow: 0 16px 0 #754a6466, 0 26px 60px #3c233b55;
+}
+.finish-preview {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+.rush-tag {
+  align-self: flex-start;
+  margin-left: 22px;
+  padding: 6px 10px;
+  color: #fff;
+  background: #ed3f8f;
+  border-radius: 8px 8px 8px 2px;
+  font-size: 10px;
+  font-weight: 900;
+  box-shadow: 0 3px 0 #a32869;
+}
+.rush-tag i { color: #ffd044; margin-right: 4px; }
+#finalDessert {
+  height: 210px !important;
+  margin: 5px auto 4px !important;
+  top: 0 !important;
+  transform: scale(1.08) !important;
+}
+.finish-preview h2 {
+  font-size: 22px;
+  line-height: 1.15;
+  color: #302333;
+}
+.finish-preview > p {
+  margin: 7px 0 0;
+  color: #8b818b;
+  font-size: 11px;
+}
+.recipe-ticket {
+  position: relative;
+  min-width: 0;
+  padding: 36px 24px 20px;
+  border: 2px solid #eadfe4;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #fffdfb, #fff7f4);
+  box-shadow: inset 0 1px #fff, 0 8px 20px #74445d12;
+}
+.ticket-dots {
+  position: absolute;
+  top: 17px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.ticket-dots i {
+  width: 7px;
+  height: 7px;
+  border: 1px solid #e6dce2;
+  border-radius: 50%;
+  background: #fff;
+}
+.recipe-ticket .eyebrow {
+  margin: 7px 0 3px !important;
+  color: #8956ed;
+}
+.recipe-ticket h3 {
+  margin: 0;
+  color: #2f2331;
+  font-size: 17px;
+  text-transform: capitalize;
+}
+.recipe-rule {
+  height: 1px;
+  margin: 15px 0;
+  background: #eadfe4;
+}
+.recipe-list {
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.recipe-list > div {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 12px;
+  align-items: baseline;
+}
+.recipe-list > div[hidden] {
+  display: none !important;
+}
+.recipe-list dt {
+  color: #675e66;
+  font-size: 12px;
+}
+.recipe-list dd {
+  margin: 0;
+  color: #342735;
+  font-size: 12px;
+  font-weight: 900;
+  text-align: right;
+}
+.recipe-list .price-row {
+  margin-top: 3px;
+  padding-top: 10px;
+  border-top: 1px dashed #e3d4de;
+}
+.recipe-list .price-row dt,
+.recipe-list .price-row dd {
+  color: #7f4fe9;
+  font-size: 15px;
+  font-weight: 900;
+}
+.finish-primary strong { margin-left: 5px; }
+.finish-primary,
+.finish-secondary,
+.finish-share {
+  border: 0;
+  min-height: 42px;
+  border-radius: 22px;
+  font: 800 12px 'Nunito', sans-serif;
+  cursor: pointer;
+}
+.finish-primary {
+  width: 100%;
+  color: #fff;
+  background: linear-gradient(135deg, #925df5, #7e48ea);
+  box-shadow: 0 5px 0 #5330a8, 0 9px 17px #7f52e733;
+}
+.finish-actions {
+  margin-top: 13px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.finish-secondary {
+  color: #8053e7;
+  border: 2px solid #9664f1;
+  background: #fff;
+}
+.finish-share {
+  color: #e94d91;
+  background: #ffe8f2;
+}
+@media (max-width: 720px) {
+  .modal { place-items: start center; padding: 16px; }
+  .finish-wrap { gap: 12px; }
+  .success-ribbon { padding: 9px 16px; font-size: 13px; }
+  .modal-card {
+    padding: 20px;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  #finalDessert { height: 165px !important; transform: scale(.9) !important; }
+  .rush-tag { margin-left: 0; }
+  .recipe-ticket { padding: 32px 18px 18px; }
+}
+.dessert .layer.asset-loaded {
+  display: block;
+  object-fit: contain;
+  background: transparent !important;
+}
+.dessert.bolo .filling-layer.asset-loaded {
+  left: 50%;
+  top: 50%;
+  width: 164px;
+  height: 164px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.dessert.bolo.has-filling .base-art {
+  visibility: hidden;
+}
+.dessert.bolo.has-filling .base-art { visibility: visible; }
+.dessert.bolo .coat-layer.asset-loaded {
+  left: 50%;
+  top: 50%;
+  width: 164px;
+  height: 164px;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+.dessert.bolo .top-layer.asset-loaded,
+.dessert.bolo .decor-layer.asset-loaded {
+  left: 50%;
+  top: 50%;
+  width: 164px;
+  height: 164px;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+}
+.dessert.bolo.has-cake-filling-art .base-art { visibility: hidden; }
+.dessert.bolo.has-cake-filling-art .filling-layer {
+  left: 50%;
+  top: 50%;
+  width: 164px;
+  height: 164px;
+  transform: translate(-50%, -50%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 2;
+}
+
+/* Estado inicial: o doce começa apenas com a base selecionada. */
+.dessert.no-filling .filling,
+.dessert.no-coat .frosting,
+.dessert.no-top .topping-layer,
+.dessert.no-decor .decor-layer {
+  opacity: 0 !important;
+  visibility: hidden;
+}
+.dessert.has-filling .filling,
+.dessert.has-coat .frosting,
+.dessert.has-top .topping-layer,
+.dessert.has-decor .decor-layer {
+  visibility: visible;
+}
+
+/* Bolo em camadas: massa assada, recheio fino e laterais arredondadas. */
+.dessert.bolo .cake-body {
+  left: 18px;
+  bottom: 18px;
+  width: 109px;
+  height: 82px;
+  border-radius: 10px 10px 16px 16px;
+  background: linear-gradient(to bottom, #e7ae69 0 28%, #b96c3e 28% 33%, #e7ae69 33% 61%, #b96c3e 61% 66%, #d89050 66% 100%);
+  box-shadow: inset 7px 0 10px #fff3, inset -7px -6px 9px #6d321f44, 0 4px 4px #67352644;
+}
+.dessert.bolo .cake-body:after {
+  inset: 7px 9px;
+  background: radial-gradient(circle, #fff5 1px, transparent 2px) 0 0/13px 13px;
+  opacity: .42;
+}
+.dessert.bolo .filling {
+  left: 21px;
+  bottom: 58px;
+  width: 103px;
+  height: 22px;
+  border-radius: 48% 48% 42% 42%;
+  background: radial-gradient(ellipse at 28% 25%, #fff8 0 4px, transparent 5px), linear-gradient(115deg, #0003, transparent 35%), var(--fill);
+  box-shadow: inset 0 5px 5px #fff4, inset 0 -6px 6px #0003, 0 3px 3px #4a243555;
+}
+.dessert.bolo .filling:after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  bottom: -7px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 10px 1px, var(--fill) 0 9px, transparent 10px) 0 0/25px 13px;
+  filter: drop-shadow(0 2px 2px #4a243544);
+}
+.dessert.bolo .frosting {
+  left: 13px;
+  bottom: 75px;
+  width: 118px;
+  height: 27px;
+  border-radius: 50% 50% 22% 22%;
+  box-shadow: inset 8px 5px 7px #fff4, inset -7px -5px 7px #0002, 0 3px 3px #54223833;
+}
+.dessert.bolo .frosting:after {
+  left: 8px;
+  right: 8px;
+  height: 16px;
+  bottom: -9px;
+  background: radial-gradient(ellipse at 9px 1px, var(--coat) 0 7px, transparent 8px) 0 0/25px 15px;
+}
+
+/* Cupcake: forminha canelada e topo de massa mais largo. */
+.dessert.cupcake .cake-body {
+  left: 26px;
+  bottom: 18px;
+  width: 93px;
+  height: 78px;
+  border-radius: 20px 20px 24px 24px;
+  background: repeating-linear-gradient(90deg, #b96b3d 0 5px, #dc9853 5px 11px, #a95735 11px 14px);
+  border: 3px solid #783c2b;
+  clip-path: polygon(3% 0, 97% 0, 83% 100%, 17% 100%);
+  box-shadow: inset 9px 0 9px #fff2, inset -8px -6px 9px #55231555, 0 4px 4px #67352644;
+}
+.dessert.cupcake .cake-body:before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: -6px;
+  width: 91px;
+  height: 21px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 30% 25%, #fff6 0 4px, transparent 5px), linear-gradient(145deg, #e8ad6b, #b9663b);
+  border: 3px solid #783c2b;
+  box-shadow: inset 4px 3px 5px #fff3, inset -5px -4px 5px #54231544;
+  clip-path: none;
+}
+.dessert.cupcake .cake-body:after {
+  inset: 18px 17px 8px;
+  background: radial-gradient(circle, #fff5 1px, transparent 2px) 0 0/13px 13px;
+  opacity: .55;
+}
+.dessert.cupcake .filling {
+  left: 16px;
+  bottom: 67px;
+  width: 113px;
+  height: 34px;
+  border-radius: 48% 48% 35% 35%;
+  background: linear-gradient(145deg, #fff5, transparent 28%), linear-gradient(115deg, #b92f55, #ef5a7e 55%, #ff9caf);
+  box-shadow: inset 7px 5px 7px #fff4, inset -7px -6px 7px #0002, 0 4px 3px #67263d44;
+}
+.dessert.cupcake .filling:after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  bottom: -7px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 9px 1px, #ef5a7e 0 8px, transparent 9px) 0 0/25px 15px;
+}
+.dessert.cupcake .frosting {
+  left: 20px;
+  bottom: 83px;
+  width: 105px;
+  height: 59px;
+  border-radius: 54% 54% 45% 45%;
+  background: linear-gradient(145deg, #fff7, transparent 22%), linear-gradient(115deg, #f59aa7, #ffd0d1 52%, #fff0e8);
+  box-shadow: inset 8px 6px 8px #fff7, inset -7px -9px 9px #d66f7a55, 0 5px 4px #67263d33;
+}
+.dessert.cupcake .frosting:after {
+  left: -8px;
+  right: -8px;
+  bottom: -15px;
+  height: 24px;
+  background: radial-gradient(ellipse at 10px 2px, #f59aa7 0 10px, transparent 11px) 0 0/26px 22px;
+}
+.dessert.cupcake.coat-chocolate .frosting {
+  background: linear-gradient(145deg, #fff7, transparent 22%), linear-gradient(115deg, #f59aa7, #ffd0d1 52%, #fff0e8);
+  box-shadow: inset 8px 6px 8px #fff7, inset -7px -9px 9px #d66f7a55, 0 5px 4px #67263d33;
+}
+.dessert.cupcake.coat-chocolate .frosting:before {
+  content: "";
+  position: absolute;
+  inset: -1px 0 auto;
+  height: 35px;
+  border-radius: 50% 50% 18px 18px;
+  background: linear-gradient(145deg, #fff4, transparent 22%), linear-gradient(115deg, #4b2118, #793d2b 55%, #a35c40);
+  box-shadow: inset 8px 5px 7px #fff3, inset -7px -5px 7px #0003;
+  z-index: 1;
+}
+.dessert.cupcake.coat-chocolate .frosting:after {
+  left: 2px;
+  right: 2px;
+  bottom: -17px;
+  height: 24px;
+  background: radial-gradient(ellipse at 11px 1px, #6d3425 0 10px, transparent 11px) 0 0/27px 23px;
+  z-index: 2;
+}
+.dessert.cupcake.coat-morango .frosting {
+  background: linear-gradient(145deg, #fff7, transparent 24%), linear-gradient(115deg, #c52d58, #f565a3 58%, #ff9abb);
+}
+.dessert.cupcake.coat-branca .frosting {
+  background: linear-gradient(145deg, #fff, #fff8 45%, #e8cfd4);
+}
+.dessert.cupcake.coat-branca .frosting:after {
+  background: radial-gradient(ellipse at 10px 2px, #e8cfd4 0 10px, transparent 11px) 0 0/26px 22px;
+}
+.dessert.cupcake.coat-caramelo .frosting {
+  background: linear-gradient(145deg, #fff6, transparent 25%), linear-gradient(115deg, #a85c27, #d6954a 52%, #efbd6b);
+}
+.dessert.cupcake.coat-caramelo .frosting:after {
+  background: radial-gradient(ellipse at 10px 2px, #d6954a 0 10px, transparent 11px) 0 0/26px 22px;
+}
+
+/* Donut visto de cima, seguindo a referencia: anel, furo central e glacê. */
+.dessert.donut .cake-body {
+  left: 11px;
+  bottom: 20px;
+  width: 123px;
+  height: 103px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 34% 27%, #f5bc66 0 7%, transparent 8%), linear-gradient(145deg, #f2b052, #c67a31 68%, #8e4d29);
+  border: 4px solid #342d32;
+  box-shadow: inset 9px 8px 10px #fff4, inset -10px -9px 10px #63321f66, 0 8px 5px #492b3d44;
+}
+.dessert.donut .cake-body:after {
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 23% 30%, #fff5 0 5px, transparent 6px), radial-gradient(ellipse at 74% 72%, #773d25 0 4px, transparent 5px), radial-gradient(ellipse at 58% 18%, #8e4d29 0 3px, transparent 4px);
+  opacity: .7;
+}
+.dessert.donut .cake-body:before {
+  left: 39px;
+  top: 31px;
+  width: 37px;
+  height: 37px;
+  border: 4px solid #342d32;
+  background: #fffaf7;
+  box-shadow: inset 3px 3px 5px #fff, inset -5px -5px 6px #b86d58;
+}
+.dessert.donut .frosting {
+  left: 7px;
+  bottom: 27px;
+  width: 131px;
+  height: 95px;
+  border: 0;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffb3d7 0 12%, transparent 25%), linear-gradient(135deg, #ff79ba, #ee4f9d 60%, #b92f70);
+  box-shadow: inset 9px 8px 10px #fff5, inset -10px -10px 12px #7b1b4b66, 0 6px 5px #5c244655;
+  mask: radial-gradient(circle at 50% 50%, transparent 0 24px, #000 25px);
+  -webkit-mask: radial-gradient(circle at 50% 50%, transparent 0 24px, #000 25px);
+}
+.dessert.donut .frosting:before {
+  content: "";
+  position: absolute;
+  left: 68px;
+  top: 18px;
+  width: 18px;
+  height: 48px;
+  border-left: 7px solid #fff;
+  border-radius: 50%;
+  transform: rotate(-18deg);
+  opacity: .9;
+}
+.dessert.donut .frosting:after {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 64px;
+  width: 22px;
+  height: 17px;
+  border-radius: 50%;
+  background: #e84894;
+  box-shadow: 25px 7px 0 -2px #ed559f, 54px 2px 0 1px #d83c87, 84px 8px 0 -3px #e94c99;
+  filter: drop-shadow(0 3px 2px #7b1b4b44);
+}
+.dessert.donut .topping-layer:after {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, transparent 0 19%, #f5cf20 20% 24%, transparent 25% 100%), linear-gradient(25deg, transparent 0 31%, #2db9e9 32% 37%, transparent 38% 100%), linear-gradient(110deg, transparent 0 46%, #f36b26 47% 52%, transparent 53% 100%), linear-gradient(70deg, transparent 0 63%, #78c83c 64% 69%, transparent 70% 100%), linear-gradient(155deg, transparent 0 78%, #f5cf20 79% 84%, transparent 85% 100%);
+  mask: radial-gradient(circle at 50% 50%, transparent 0 28px, #000 29px);
+  -webkit-mask: radial-gradient(circle at 50% 50%, transparent 0 28px, #000 29px);
+}
+.dessert .donut-art {
+  display: none;
+}
+.dessert.donut .donut-art {
+  display: block;
+  position: absolute;
+  z-index: 6;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 12px 7px rgba(112, 55, 87, 0.18));
+}
+.dessert.donut .plate,
+.dessert.donut .cake-body,
+.dessert.donut .filling,
+.dessert.donut .frosting,
+.dessert.donut .topping-layer,
+.dessert.donut .decor-layer {
+  display: none;
+}
+.dessert.donut.coat-chocolate .frosting {
+  background: linear-gradient(145deg, #fff4 0 12%, transparent 24%), linear-gradient(135deg, #4b2118, #793d2b 58%, #a35c40);
+}
+.dessert.donut.coat-morango .frosting {
+  background: linear-gradient(145deg, #fff8 0 12%, transparent 24%), linear-gradient(135deg, #ff79ba, #ee4f9d 60%, #b92f70);
+}
+.dessert.donut.coat-branca .frosting {
+  background: linear-gradient(145deg, #fff, #fff8 45%, #e8cfd4);
+}
+.dessert.donut.coat-caramelo .frosting {
+  background: linear-gradient(145deg, #fff6 0 12%, transparent 24%), linear-gradient(135deg, #a85c27, #d6954a 58%, #efbd6b);
+}
+
+/* ============================================================
+   LAYERED DESSERT SYSTEM v2 � camadas empilhadas realistas
+   Cada doce (cupcake/donut/bolo/icecream) tem geometria pr�pria
+   para recheio, cobertura, topping e decora��o.
+   ============================================================ */
+
+/* Estrutura comum das camadas (posicionamento relativo ao .dessert) */
+.dessert .layer {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+.dessert.has-filling .layer.filling-layer { opacity: 1; }
+.dessert.has-coat .layer.coat-layer { opacity: 1; }
+.dessert.has-top .layer.top-layer { opacity: 1; }
+.dessert.has-decor .layer.decor-layer { opacity: 1; }
+
+.layer { will-change: transform, opacity; }
+
+/* Anima��o de entrada � base por base */
+@keyframes drop-in {
+  0%   { opacity: 0; transform: translateY(-30px) scale(.5); }
+  60%  { opacity: 1; transform: translateY(2px) scale(1.05); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes pour-in {
+  0%   { opacity: 0; clip-path: inset(0 0 100% 0); }
+  100% { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+@keyframes sprinkle-in {
+  0%   { opacity: 0; transform: translateY(-20px) rotate(0); }
+  100% { opacity: 1; transform: translateY(0) rotate(var(--rot, 0deg)); }
+}
+@keyframes pop-in {
+  0%   { opacity: 0; transform: scale(0); }
+  70%  { opacity: 1; transform: scale(1.15); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.dessert.animate-new .filling-layer { animation: pour-in .55s ease-out both; }
+.dessert.animate-new .coat-layer    { animation: drop-in .5s ease-out both; }
+.dessert.animate-new .top-layer     { animation: drop-in .45s ease-out both; animation-delay: .05s; }
+.dessert.animate-new .decor-layer   { animation: pop-in .45s cubic-bezier(.5,1.6,.5,1) both; }
+
+/* ====== CUPCAKE ====== */
+.dessert.cupcake .filling-layer {
+  left: 27px; bottom: 64px; width: 90px; height: 16px; z-index: 2;
+  border-radius: 50% 50% 35% 35%;
+}
+.dessert.cupcake .coat-layer {
+  left: 17px; bottom: 73px; width: 110px; height: 38px; z-index: 3;
+  border-radius: 50% 50% 30% 30%;
+}
+.dessert.cupcake .top-layer {
+  left: 22px; bottom: 95px; width: 100px; height: 24px; z-index: 4;
+}
+.dessert.cupcake .decor-layer {
+  left: 50%; top: 28px; transform: translateX(-50%); z-index: 6;
+}
+
+/* ====== DONUT ====== */
+.dessert.donut .filling-layer {
+  /* preenchimento central que vaza no furo */
+  left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 36px; height: 36px; border-radius: 50%; z-index: 2;
+}
+.dessert.donut .coat-layer {
+  /* anel externo */
+  left: 12px; bottom: 28px; width: 120px; height: 78px; z-index: 3;
+  border-radius: 50%;
+  -webkit-mask: radial-gradient(circle 20px at 50% 50%, transparent 96%, #000 100%);
+          mask: radial-gradient(circle 20px at 50% 50%, transparent 96%, #000 100%);
+}
+.dessert.donut .top-layer {
+  left: 22px; bottom: 38px; width: 100px; height: 60px; z-index: 4;
+  -webkit-mask: radial-gradient(circle 22px at 50% 50%, transparent 96%, #000 100%);
+          mask: radial-gradient(circle 22px at 50% 50%, transparent 96%, #000 100%);
+}
+.dessert.donut .decor-layer {
+  left: 50%; top: 8px; transform: translateX(-50%); z-index: 6;
+}
+
+/* ====== BOLO ====== */
+.dessert.bolo .filling-layer {
+  /* camada de recheio entre dois andares */
+  left: 20px; bottom: 72px; width: 105px; height: 12px; z-index: 2;
+  border-radius: 30%;
+}
+.dessert.bolo .coat-layer {
+  /* cobertura escorrendo no topo */
+  left: 18px; bottom: 84px; width: 108px; height: 32px; z-index: 3;
+  border-radius: 40% 40% 25% 25%;
+}
+.dessert.bolo .top-layer {
+  left: 24px; bottom: 105px; width: 96px; height: 22px; z-index: 4;
+}
+.dessert.bolo .decor-layer {
+  left: 50%; top: 14px; transform: translateX(-50%); z-index: 6;
+}
+
+/* ====== ICE CREAM (Sorvete) ====== */
+.dessert.icecream .filling-layer {
+  /* listra de recheio na bola de sorvete */
+  left: 32px; bottom: 88px; width: 80px; height: 16px; z-index: 2;
+  border-radius: 50%;
+  transform: rotate(-8deg);
+}
+.dessert.icecream .coat-layer {
+  /* calda escorrendo pela bola */
+  left: 18px; bottom: 88px; width: 108px; height: 50px; z-index: 3;
+  border-radius: 50% 50% 30% 30%;
+}
+.dessert.icecream .top-layer {
+  left: 28px; bottom: 118px; width: 88px; height: 30px; z-index: 4;
+}
+.dessert.icecream .decor-layer {
+  left: 50%; top: 12px; transform: translateX(-50%); z-index: 6;
+}
+
+/* ====== RECHEIOS � gradientes realistas por sabor ====== */
+.filling-chocolate { background: linear-gradient(115deg, #2d1207 0%, #5a2a16 40%, #7d3d1f 75%, #4a1f10 100%); box-shadow: inset 0 2px 3px #fff3, inset 0 -3px 4px #0004, 0 2px 2px #2a0e0522; }
+.filling-morango   { background: linear-gradient(115deg, #c9234a 0%, #ed4e7b 50%, #ff80a3 100%); box-shadow: inset 0 2px 3px #fff5, inset 0 -3px 4px #8a0a2a55, 0 2px 2px #6b0a2344; }
+.filling-baunilha  { background: linear-gradient(115deg, #f0dca0 0%, #fbeec0 50%, #f7d97a 100%); box-shadow: inset 0 2px 3px #fff9, inset 0 -3px 4px #b58a2255, 0 2px 2px #8a601a44; }
+.filling-doce-de-leite { background: linear-gradient(115deg, #8a4d1a 0%, #c47c2e 50%, #e0a352 100%); box-shadow: inset 0 2px 3px #fff3, inset 0 -3px 4px #5a280955, 0 2px 2px #4a200944; }
+
+/* ====== COBERTURAS � gradientes + brilho por sabor ====== */
+.coat-chocolate {
+  background:
+    radial-gradient(ellipse at 30% 20%, #fff6 0 6px, transparent 9px),
+    linear-gradient(135deg, #2c100a 0%, #5a2a16 45%, #7d3d1f 100%);
+  box-shadow: inset 0 3px 4px #fff3, inset 0 -4px 5px #0004, 0 3px 3px #2a0e0533;
+}
+.coat-morango {
+  background:
+    radial-gradient(ellipse at 30% 20%, #fff8 0 6px, transparent 9px),
+    linear-gradient(135deg, #c9265a 0%, #f04e87 50%, #ff85b3 100%);
+  box-shadow: inset 0 3px 4px #fff5, inset 0 -4px 5px #8a0a2a55, 0 3px 3px #6b0a2344;
+}
+.coat-branca {
+  background:
+    radial-gradient(ellipse at 30% 20%, #fff 0 7px, transparent 10px),
+    linear-gradient(135deg, #fdf6f0 0%, #ffffff 50%, #f0dde2 100%);
+  box-shadow: inset 0 3px 4px #fff, inset 0 -4px 5px #c89aa555, 0 3px 3px #a36a7a33;
+}
+.coat-caramelo {
+  background:
+    radial-gradient(ellipse at 30% 20%, #fff6 0 6px, transparent 9px),
+    linear-gradient(135deg, #8e4a1a 0%, #c4792c 50%, #e8b260 100%);
+  box-shadow: inset 0 3px 4px #fff3, inset 0 -4px 5px #5a280955, 0 3px 3px #4a200944;
+}
+
+/* ====== TOPPINGS � part�culas distribu�das ====== */
+.top-layer {
+  background-repeat: no-repeat;
+}
+
+/* Granulado: bolinhas pequenas coloridas */
+.top-granulado {
+  background-image:
+    radial-gradient(circle at 12% 25%, #6d3d91 0 2px, transparent 3px),
+    radial-gradient(circle at 28% 65%, #f15c78 0 2px, transparent 3px),
+    radial-gradient(circle at 44% 18%, #55b9d8 0 2px, transparent 3px),
+    radial-gradient(circle at 58% 70%, #f4bf3d 0 2px, transparent 3px),
+    radial-gradient(circle at 74% 28%, #e45b72 0 2px, transparent 3px),
+    radial-gradient(circle at 88% 62%, #6d3d91 0 2px, transparent 3px);
+  filter: drop-shadow(0 1px 1px #0003);
+}
+
+/* Confetes: peda�os maiores coloridos */
+.top-confetes {
+  background-image:
+    linear-gradient(45deg, transparent 0 4px, #ff5e75 4px 8px, transparent 8px 12px) 0 0/14px 14px,
+    linear-gradient(135deg, transparent 0 5px, #54c9bd 5px 10px, transparent 10px 16px) 7px 8px/16px 16px,
+    linear-gradient(45deg, transparent 0 4px, #ffd344 4px 9px, transparent 9px 14px) 14px 4px/14px 14px,
+    linear-gradient(135deg, transparent 0 5px, #8c63ee 5px 10px, transparent 10px 16px) 21px 10px/16px 16px;
+  filter: drop-shadow(0 1px 2px #0002);
+}
+
+/* Frutas: c�rculos maiores (cerejinhas, mirtilos) */
+.top-frutas {
+  background-image:
+    radial-gradient(circle at 18% 50%, #ef4e68 0 6px, #b92345 7px 8px, transparent 9px),
+    radial-gradient(circle at 50% 28%, #ffd34d 0 6px, #e7a922 7px 8px, transparent 9px),
+    radial-gradient(circle at 78% 55%, #8b62dc 0 6px, #55369c 7px 8px, transparent 9px),
+    radial-gradient(circle at 35% 75%, #6dba3a 0 5px, transparent 6px),
+    radial-gradient(circle at 65% 80%, #ef4e68 0 5px, transparent 6px);
+  filter: drop-shadow(0 2px 1px #0003);
+}
+
+/* Chocolate: pedacinhos irregulares */
+.top-chocolate {
+  background-image:
+    radial-gradient(ellipse at 12% 25%, #3e2118 0 4px, transparent 5px),
+    radial-gradient(ellipse at 31% 62%, #5d3020 0 4px, transparent 5px),
+    radial-gradient(ellipse at 53% 22%, #3e2118 0 4px, transparent 5px),
+    radial-gradient(ellipse at 74% 58%, #6e3b25 0 4px, transparent 5px),
+    radial-gradient(ellipse at 91% 30%, #3e2118 0 4px, transparent 5px);
+  filter: drop-shadow(2px 3px 1px #24120d88);
+}
+
+/* ====== DECORA��ES � elementos ilustrados inline (SVG) ====== */
+.decor-layer svg { display: block; }
+
+/* Vela pulsa (chama) */
+@keyframes flame {
+  0%, 100% { transform: scale(1) translateY(0); opacity: 1; }
+  50%      { transform: scale(.92) translateY(-1px); opacity: .9; }
+}
+.decor-layer .vela-flame { transform-origin: 50% 100%; animation: flame .9s ease-in-out infinite alternate; }
+
+/* Cereja brilho */
+.decor-layer .cereja { filter: drop-shadow(0 3px 2px #71152e66); }
+
+/* Vela: listrada roxa/branca */
+.decor-vela .vela-body { fill: url(#velaStripes); }
+
+/* Quando N�O tem cobertura, esconder brilhos dependentes */
+.dessert.no-coat .filling-layer { box-shadow: none; }
+
+/* As classes de sabor ficam no contêiner apenas para selecionar variantes. */
+.dessert[class*="filling-"],
+.dessert[class*="coat-"] {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+.dessert .filling-layer {
+  background-color: transparent;
+}
+
+/* Correções finais das camadas sem PNG: evita ícones quebrados e posiciona o sorvete. */
+.dessert .layer:not(.asset-loaded) {
+  display: none !important;
+}
+
+.dessert.icecream.has-filling .filling {
+  display: block !important;
+  left: 20px;
+  top: -55px;
+  bottom: auto;
+  width: 105px;
+  height: 92px;
+  z-index: 4;
+  border: 3px solid #5f3b3f;
+  border-radius: 52% 52% 46% 46%;
+  background:
+    radial-gradient(circle at 29% 23%, #fff9 0 7px, transparent 8px),
+    radial-gradient(circle at 72% 38%, #fff3 0 8px, transparent 9px),
+    linear-gradient(145deg, #fff4, transparent 33%),
+    var(--fill);
+  box-shadow: inset -10px -10px 10px #0002, inset 8px 7px 9px #fff4, 0 6px 5px #5c294955;
+}
+
+.dessert.icecream.has-filling .filling:after {
+  content: "";
+  position: absolute;
+  left: 13px;
+  right: 13px;
+  bottom: -7px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--fill);
+  box-shadow: inset 0 -5px 5px #0002;
+}
+
+.dessert.icecream.has-coat .frosting {
+  display: block !important;
+  left: 26px;
+  top: -51px;
+  bottom: auto;
+  width: 93px;
+  height: 34px;
+  z-index: 5;
+  border: 3px solid color-mix(in srgb, var(--coat), #4f293c 45%);
+  border-radius: 55% 55% 35% 35%;
+  box-shadow: inset 8px 5px 7px #fff4, inset -7px -5px 7px #0002, 0 3px 3px #54223833;
+}
+
+.dessert.icecream.has-coat .frosting:after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 20px;
+  bottom: auto;
+  width: 77px;
+  height: 25px;
+  background:
+    radial-gradient(ellipse at 12px 1px, var(--coat) 0 11px, transparent 12px) 0 0 / 31px 24px;
+  filter: drop-shadow(0 2px 1px #4b233744);
+}
+
+.dessert.icecream.has-top .topping-layer:after {
+  top: -42px;
+  left: 29px;
+  width: 88px;
+  height: 54px;
+}
+
+/* Sprites PNG cartoon gerados para o sorvete. */
+.dessert.icecream.has-filling-art .filling,
+.dessert.icecream.has-coat-art .frosting,
+.dessert.icecream.has-top-art .topping-layer {
+  display: none !important;
+}
+.dessert.icecream .filling-layer.asset-loaded {
+  display: block !important;
+  left: 6px;
+  top: -83px;
+  bottom: auto;
+  width: 133px;
+  height: 130px;
+  object-fit: fill;
+  z-index: 4;
+  transform: none;
+  filter: drop-shadow(0 6px 4px #572c4355);
+}
+.dessert.icecream .coat-layer.asset-loaded {
+  display: block !important;
+  left: 6px;
+  top: -79px;
+  bottom: auto;
+  width: 133px;
+  height: 101px;
+  object-fit: fill;
+  object-position: top center;
+  z-index: 5;
+  transform: none;
+  filter: drop-shadow(0 3px 2px #572c4344);
+}
+.dessert.icecream .top-layer.asset-loaded {
+  display: block !important;
+  left: 10px;
+  top: -75px;
+  bottom: auto;
+  width: 125px;
+  height: 72px;
+  object-fit: fill;
+  z-index: 6;
+  transform: none;
+  filter: drop-shadow(0 2px 1px #572c4333);
+}
+
+/* Bolo cartoon em três andares: calda e topping PNG em cada nível. */
+.dessert.bolo.has-coat-art .frosting,
+.dessert.bolo.has-top-art .topping-layer,
+.dessert.bolo.has-decor-art .decor-fallback { display:none !important; }
+.dessert.bolo .coat-layer.asset-loaded,
+.dessert.bolo .coat-mid-layer.asset-loaded,
+.dessert.bolo .coat-bottom-layer.asset-loaded,
+.dessert.bolo .top-layer.asset-loaded,
+.dessert.bolo .top-mid-layer.asset-loaded,
+.dessert.bolo .top-bottom-layer.asset-loaded,
+.dessert.bolo .decor-layer.asset-loaded {
+  display:block !important;
+  opacity:1 !important;
+  position:absolute;
+  object-fit:fill;
+  transform:none;
+  filter:drop-shadow(0 2px 1px #572c4333);
+}
+.dessert.bolo .coat-layer.asset-loaded { left:-9px; top:-1px; width:164px; height:164px; z-index:4; }
+.dessert.bolo .coat-mid-layer.asset-loaded { left:24px; top:52px; width:98px; height:28px; z-index:4; }
+.dessert.bolo .coat-bottom-layer.asset-loaded { left:11px; top:92px; width:123px; height:27px; z-index:4; }
+.dessert.bolo .top-layer.asset-loaded { left:38px; top:11px; width:69px; height:25px; z-index:5; }
+.dessert.bolo .top-mid-layer.asset-loaded,
+.dessert.bolo .top-bottom-layer.asset-loaded { display:none !important; }
+.dessert.bolo .decor-layer.asset-loaded {
+  left:50%; top:-22px; width:44px; height:58px; z-index:7;
+  object-fit:contain; transform:translateX(-50%);
+  filter:drop-shadow(0 4px 2px #572c4355);
+}
+.dessert.bolo.decor-cereja .decor-layer.asset-loaded {
+  top: -10px;
+  width: 32px;
+  height: 45px;
+}
+
+/* Ajuste de composição do bolo 2D: mantém vela e toppers dentro da cena. */
+.dessert.bolo {
+  top: 18px;
+}
+.dessert.bolo.has-coat .base-art {
+  width: 190px;
+  height: 190px;
+}
+.dessert.bolo.has-coat .frosting {
+  display: none !important;
+}
+.dessert.bolo .top-layer.asset-loaded {
+  left: 37px;
+  top: 8px;
+  width: 71px;
+  height: 28px;
+  object-fit: fill;
+}
+.modal .dessert.bolo {
+  top: 8px;
+}

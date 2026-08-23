@@ -3,94 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Interativo</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Doce Encanto | Cardápio</title>
+    
+    <!-- Pré-carregamento das fontes do Google (Melhora a performance) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/menu-assets.css?v=2">
 </head>
 <body>
+    <!-- Container principal do cardápio -->
+    <main class="menu-container" aria-live="polite">
+        
+        <!-- Navegação de Categorias (Abas) -->
+        <nav class="tabs-container" aria-label="Categorias do cardápio">
+            <button class="tab active" data-category="todos" type="button">Todos</button>
+            <button class="tab" data-category="frios" type="button">Frios</button>
+            <button class="tab" data-category="quentes" type="button">Quentes</button>
+        </nav>
 
-    <div class="menu-container">
-        <!-- TABS SUPERIORES -->
-        <div class="tabs-container">
-            <div class="tab">TODOS</div>
-            <div class="tab active">FRIOS</div>
-            <div class="tab">QUENTES</div>
-        </div>
-
-        <!-- ÁREA DO CARROSSEL -->
-        <div class="hero-section">
-            <button class="nav-btn" id="btn-prev">&#10094;</button>
+        <div class="product-showcase">
+        <!-- Seção de Destaque do Produto (Hero) -->
+        <section class="hero-section" id="hero-section" aria-label="Produto em destaque">
+            <!-- Botão de voltar -->
+            <button class="nav-btn" id="btn-prev" type="button" aria-label="Produto anterior">‹</button>
+            
+            <!-- Elementos decorativos de fundo (círculos) -->
+            <div class="hero-orbit orbit-left"></div>
+            <div class="hero-orbit orbit-right"></div>
+            
+            <!-- Container da imagem principal do produto -->
             <div class="main-image-container">
-                <img id="main-image" src="image_117845.png" alt="Sorvete Blue Ice">
+                <img id="main-image" src="sorvete_blueice.png" alt="Sorvete Blue Ice">
+                <img id="character-image" class="character-image" src="../personagens.img/personagens.img/Lilo%20%26%20Stich%20-%20Sorvete%20Blue%20Ice.png" alt="Personagem relacionado ao produto">
             </div>
-            <button class="nav-btn" id="btn-next">&#10095;</button>
-        </div>
+            
+            <!-- Botão de avançar -->
+            <button class="nav-btn" id="btn-next" type="button" aria-label="Próximo produto">›</button>
+        </section>
 
-        <!-- INFORMAÇÕES DO PRODUTO -->
-        <div class="product-info-section">
+        <!-- Seção de Informações do Produto (Textos e Preço) -->
+        <section class="product-info-section">
+            <!-- Lado esquerdo: Textos descritivos -->
             <div class="info-left">
-                <div class="category-tag">CATEGORIA FRIOS</div>
+                <p class="category-tag" id="category-tag">Categoria frios</p>
                 <h1 class="product-title" id="product-title">Sorvete Blue Ice</h1>
                 <p class="product-desc" id="product-desc">
-                    Gelato artesanal ultra cremoso saborizado com creme de baunilha azul de Madagascar, infundido com cristais de açúcar que brilham sob o frio e servido sob uma névoa congelante de nitrogênio liquido.
+                    Gelato artesanal ultra cremoso saborizado com creme de baunilha azul de Madagascar, 
+                    servido com uma névoa geladinha e cristais de açúcar.
                 </p>
             </div>
-            <div class="info-right">
-                <div class="counter" id="product-counter">01/04</div>
-                <div class="price-container">
-                    Preço <span class="price-value" id="product-price">R$ 14,00</span>
-                </div>
-                <button class="btn-add">
-                    🛒 ADICIONAR AO PEDIDO
-                </button>
-            </div>
-        </div>
-
-        <!-- LISTA DE MINIATURAS (ITENS ADICIONADOS DIRETO NO HTML) -->
-        <div class="thumbnails-section">
-            <div class="thumbnails-title">ITENS DISPONÍVEIS NA CATEGORIA</div>
             
-            <div class="thumbnails-list" id="thumbnails-container">
-                
-                <!-- ITEM 1 -->
-                <div class="thumb-card active" data-index="0">
-                    <img src="sorvete_blueice.png" alt="Sorvete Blue Ice" class="thumb-img">
-                    <div class="thumb-info">
-                        <h4>Sorvete Blue Ice</h4>
-                        <p>01</p>
-                    </div>
-                </div>
-
-                <!-- ITEM 2 -->
-                <div class="thumb-card" data-index="1">
-                    <img src="https://via.placeholder.com/150/2C3E50/ffffff?text=Mochi" alt="Mochi Gelado" class="thumb-img">
-                    <div class="thumb-info">
-                        <h4>Mochi Gelado</h4>
-                        <p>02</p>
-                    </div>
-                </div>
-
-                <!-- ITEM 3 -->
-                <div class="thumb-card" data-index="2">
-                    <img src="https://via.placeholder.com/150/8E44AD/ffffff?text=Acai" alt="Açaí Bowl" class="thumb-img">
-                    <div class="thumb-info">
-                        <h4>Açaí Bowl</h4>
-                        <p>03</p>
-                    </div>
-                </div>
-
-                <!-- ITEM 4 -->
-                <div class="thumb-card" data-index="3">
-                    <img src="https://via.placeholder.com/150/2980B9/ffffff?text=Picole" alt="Picolé Artístico" class="thumb-img">
-                    <div class="thumb-info">
-                        <h4>Picolé Artístico</h4>
-                        <p>04</p>
-                    </div>
-                </div>
-                
+            <!-- Lado direito: Preço e Botão de compra -->
+            <div class="info-right">
+                <p class="counter" id="product-counter">01/04</p>
+                <p class="price-container">
+                    Preço <strong class="price-value" id="product-price">R$ 14,00</strong>
+                </p>
+                <button class="btn-add" id="btn-add" type="button">
+                    <span aria-hidden="true">🛒</span> Adicionar ao pedido
+                </button>
+                <!-- Mensagem de feedback ao adicionar no carrinho -->
+                <p class="order-feedback" id="order-feedback" role="status"></p>
             </div>
+        </section>
         </div>
-    </div>
 
-    <script src="script.js"></script>
+        <!-- Seção Inferior: Miniaturas dos outros produtos da categoria -->
+        <section class="thumbnails-section">
+            <p class="thumbnails-title">Itens disponíveis na categoria</p>
+            <div class="thumbnails-list" id="thumbnails-container" aria-label="Lista de produtos">
+                <!-- As miniaturas serão injetadas aqui pelo JavaScript -->
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Link para o arquivo JavaScript -->
+    <script src="script.js?v=2"></script>
 </body>
 </html>
