@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre em contato com a Doce Rush, sua confeitaria com sabores encantados.">
+    <title>Contatos | Doce Rush</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/contatos.css">
+</head>
+
+<body>
+    <main>
+        <section id="intro" aria-labelledby="titulo-contato">
+            <div class="intro-conteudo">
+                <p class="etiqueta">FALE COM A NOSSA EQUIPE</p>
+                <h1 id="titulo-contato">Vamos criar um momento <span>mágico</span>?</h1>
+                <p class="intro-texto">Tem uma dúvida, quer encomendar uma celebração ou simplesmente contar qual sabor
+                    encantou você? Estamos prontos para ouvir.</p>
+            </div>
+            <img class="intro-personagem" src="../images/aladin.png" alt="Aladdin">
+        </section>
+
+        <section class="contato-area" aria-label="Formulário e informações de contato">
+            <div class="informacoes">
+                <div class="secao-titulo">
+                    <p class="etiqueta">ONDE NOS ENCONTRAR</p>
+                    <h2>O encanto está mais perto do que você imagina.</h2>
+                </div>
+
+                <div class="info-lista">
+                    <a class="info-item" href="mailto:ola@docerush.com.br">
+                        <div class="info-icone"><img src="../images/icone-arroba.png" alt=""></div>
+                        <span><strong>E-mail</strong><small>ola@docerush.com.br</small></span>
+                    </a>
+                    <a class="info-item" href="tel:+5511999999999">
+                        <div class="info-icone"><img src="../images/icone-telefone.png" alt=""></div>
+                        <span><strong>Telefone</strong><small>(11) 99999-9999</small></span>
+                    </a>
+                    <div class="info-item">
+                        <div class="info-icone"><img src="../images/icone-brilho.png" alt=""></div>
+                        <span><strong>Visite a loja</strong><small>Rua tito, 54 - Vila Romana · São Paulo, SP</small></span>
+                    </div>
+                </div>
+
+                <div class="horarios">
+                    <strong>Horário de atendimento</strong>
+                    <p>Segunda a sábado <span>10h às 19h</span></p>
+                    <p>Domingos e feriados <span>11h às 17h</span></p>
+                </div>
+            </div>
+
+            <form class="formulario" action="#" method="post">
+                <div class="formulario-cabecalho">
+                    <h2>Envie uma mensagem</h2>
+                    <p>Respondemos com carinho em até 1 dia útil.</p>
+                </div>
+
+                <div class="campo-duplo">
+                    <label for="nome">Seu nome
+                        <input type="text" id="nome" name="nome" placeholder="Como podemos chamar você?" required>
+                    </label>
+                    <label for="email">Seu e-mail
+                        <input type="email" id="email" name="email" placeholder="voce@email.com" required>
+                    </label>
+                </div>
+
+                <label for="assunto">Assunto
+                    <select id="assunto" name="assunto" required>
+                        <option value="" selected disabled>Escolha uma opção</option>
+                        <option value="encomenda">Quero fazer uma encomenda</option>
+                        <option value="duvida">Tenho uma dúvida</option>
+                        <option value="evento">Festa ou evento</option>
+                        <option value="outro">Outro assunto</option>
+                    </select>
+                </label>
+
+                <label for="mensagem">Mensagem
+                    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Conte para nós como podemos ajudar..."
+                        required></textarea>
+                </label>
+
+                <button class="botao-enviar" type="submit">ENVIAR MENSAGEM <span aria-hidden="true">→</span></button>
+                <p class="mensagem-sucesso" role="status" aria-live="polite" hidden>
+                    Mensagem enviada com sucesso! Em breve entraremos em contato.
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        const formulario = document.querySelector('.formulario');
+        const mensagemSucesso = document.querySelector('.mensagem-sucesso');
+
+        formulario.addEventListener('submit', function (evento) {
+            evento.preventDefault();
+
+            if (!formulario.checkValidity()) {
+                formulario.reportValidity();
+                return;
+            }
+
+            formulario.reset();
+            mensagemSucesso.hidden = false;
+        });
+    </script>
+</body>
+
+</html>

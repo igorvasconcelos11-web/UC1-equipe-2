@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --lilas: #a451ce;
+    --lilas-escuro: #8336ad;
+    --azul-fundo: #f3f7fd;
+    --azul-suave: #e8f0fa;
+    --texto: #242332;
+    --texto-suave: #686675;
+    --branco: #ffffff;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--texto);
+    background: var(--azul-fundo);
+    font-family: 'Poppins', sans-serif;
+}
+
+h1, h2 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+}
+
+#intro {
+    position: relative;
+    min-height: 290px;
+    padding: 62px clamp(24px, 10vw, 145px) 58px;
+    overflow: hidden;
+    color: var(--branco);
+    background: linear-gradient(90deg, rgba(16, 26, 76, 0.82) 0%, rgba(34, 35, 86, 0.63) 48%, rgba(49, 29, 83, 0.18) 100%), url('../images/fundo-castelo-magico.png') center / cover no-repeat;
+    display: flex;
+    align-items: center;
+}
+
+.intro-conteudo {
+    position: relative;
+    z-index: 1;
+    max-width: 710px;
+}
+
+.intro-personagem {
+    position: absolute;
+    right: clamp(24px, 7vw, 120px);
+    bottom: 0;
+    z-index: 1;
+    width: clamp(210px, 25vw, 360px);
+    max-height: 280px;
+    object-fit: contain;
+    object-position: bottom;
+}
+
+.etiqueta {
+    color: var(--lilas-escuro);
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#intro .etiqueta {
+    color: #f0d7ff;
+}
+
+.intro h1 {
+    margin: 15px 0;
+    font-size: clamp(38px, 4.5vw, 58px);
+    line-height: 1.05;
+}
+
+.intro h1 span {
+    color: var(--lilas);
+}
+
+.intro-texto {
+    width: 610px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+}
+
+.contato-area {
+    width: min(1120px, calc(100% - 48px));
+    margin: 60px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.secao-titulo h2 {
+    width: 360px;
+    height: 150px;
+    margin-top: 12px;
+    font-size: 36px;
+}
+
+.info-lista {
+    margin-top: 38px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--texto);
+    text-decoration: none;
+    margin-top: 25px;
+}
+
+.info-icone {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e8d8f2;
+}
+
+.info-icone img {
+    width: 21px;
+    height: 21px;
+}
+
+.info-item strong,
+.info-item small {
+    display: block;
+}
+
+.info-item strong {
+    font-size: 15px;
+}
+
+.info-item small {
+    margin-top: 2px;
+    color: var(--texto-suave);
+    font-size: 14px;
+}
+
+.horarios {
+    width: 350px;
+    margin-top: 39px;
+    padding-top: 20px;
+    border-top: 1px solid #d7dce7;
+    color: var(--texto-suave);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.horarios strong {
+    color: var(--texto);
+    font-size: 15px;
+}
+
+.horarios p {
+    display: flex;
+    justify-content: space-between;
+}
+
+.formulario {
+    padding: clamp(26px, 4vw, 43px);
+    border: 1px solid #e2dbea;
+    border-radius: 8px;
+    background: var(--branco);
+    box-shadow: 0 16px 35px rgba(79, 69, 104, 0.09);
+}
+
+.formulario-cabecalho {
+    margin-bottom: 26px;
+}
+
+.formulario h2 {
+    font-size: 30px;
+}
+
+.formulario-cabecalho p {
+    margin-top: 3px;
+    color: var(--texto-suave);
+    font-size: 12px;
+}
+
+.formulario label {
+    display: block;
+    margin-bottom: 17px;
+    color: #373544;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.campo-duplo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    margin-top: 7px;
+    padding: 12px 13px;
+    border: 1px solid #d9d8e3;
+    border-radius: 4px;
+    outline: none;
+    color: var(--texto);
+    background: #fbfbfd;
+    font: 400 12px 'Poppins', sans-serif;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--lilas);
+    box-shadow: 0 0 0 3px rgba(164, 81, 206, 0.12);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9c9aa7;
+}
+
+.botao-enviar {
+    width: 100%;
+    padding: 13px 18px;
+    border: 0;
+    border-radius: 4px;
+    color: var(--branco);
+    background: var(--lilas);
+    cursor: pointer;
+    font: 600 11px 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.botao-enviar span {
+    margin-left: 8px;
+    font-size: 16px;
+    vertical-align: -1px;
+}
+
+.botao-enviar:hover {
+    background: var(--lilas-escuro);
+    transform: translateY(-1px);
+}
+
+.mensagem-sucesso {
+    margin-top: 16px;
+    padding: 11px 13px;
+    border-left: 3px solid #4e9b72;
+    color: #276243;
+    background: #edf8f1;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+    .intro-personagem {
+        display: none;
+    }
+
+    .intro-texto {
+        width: auto;
+    }
+}
