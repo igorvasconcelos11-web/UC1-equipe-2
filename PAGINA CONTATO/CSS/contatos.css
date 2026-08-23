@@ -15,8 +15,8 @@
 }
 
 body {
+    width: 100%;
     min-height: 100vh;
-    overflow-x: hidden;
     color: var(--texto);
     background: var(--azul-fundo);
     font-family: 'Poppins', sans-serif;
@@ -24,7 +24,7 @@ body {
 
 h1, h2 {
     font-family: 'DM Serif Display', serif;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 #intro {
@@ -42,6 +42,7 @@ h1, h2 {
     position: relative;
     z-index: 1;
     max-width: 710px;
+    
 }
 
 .intro-personagem {
@@ -65,13 +66,13 @@ h1, h2 {
     color: #f0d7ff;
 }
 
-.intro h1 {
+#intro h1 {
     margin: 15px 0;
     font-size: clamp(38px, 4.5vw, 58px);
     line-height: 1.05;
 }
 
-.intro h1 span {
+#intro h1 span {
     color: var(--lilas);
 }
 
@@ -83,7 +84,7 @@ h1, h2 {
 
 .contato-area {
     width: min(1120px, calc(100% - 48px));
-    margin: 60px auto;
+    margin: 100px auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
