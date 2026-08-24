@@ -196,9 +196,7 @@ h1, h2 {
     gap: 15px;
 }
 
-input,
-select,
-textarea {
+input, select, textarea {
     width: 100%;
     margin-top: 7px;
     padding: 12px 13px;
@@ -213,18 +211,15 @@ textarea {
 
 textarea {
     min-height: 120px;
-    resize: vertical;
+    resize: none;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
+input:focus, select:focus, textarea:focus {
     border-color: var(--lilas);
     box-shadow: 0 0 0 3px rgba(164, 81, 206, 0.12);
 }
 
-input::placeholder,
-textarea::placeholder {
+input::placeholder, textarea::placeholder {
     color: #9c9aa7;
 }
 
@@ -260,14 +255,4 @@ textarea::placeholder {
     background: #edf8f1;
     font-size: 12px;
     line-height: 1.5;
-}
-
-@media (max-width: 700px) {
-    .intro-personagem {
-        display: none;
-    }
-
-    .intro-texto {
-        width: auto;
-    }
 }

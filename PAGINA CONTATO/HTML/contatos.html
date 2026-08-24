@@ -80,8 +80,7 @@
                 </label>
 
                 <label for="mensagem">Mensagem
-                    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Conte para nós como podemos ajudar..."
-                        required></textarea>
+                    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Conte para nós como podemos ajudar..." required></textarea>
                 </label>
 
                 <button class="botao-enviar" type="submit">ENVIAR MENSAGEM <span aria-hidden="true">→</span></button>
@@ -95,6 +94,7 @@
     <script>
         const formulario = document.querySelector('.formulario');
         const mensagemSucesso = document.querySelector('.mensagem-sucesso');
+        let temporizadorMensagem;
 
         formulario.addEventListener('submit', function (evento) {
             evento.preventDefault();
@@ -106,6 +106,11 @@
 
             formulario.reset();
             mensagemSucesso.hidden = false;
+
+            clearTimeout(temporizadorMensagem);
+            temporizadorMensagem = setTimeout(function () {
+                mensagemSucesso.hidden = true;
+            }, 5000);
         });
     </script>
 </body>
