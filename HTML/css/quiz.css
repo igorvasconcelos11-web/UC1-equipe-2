@@ -160,6 +160,34 @@ body {
     filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3)); /*Cria uma sombra que contorna o personagem sem fundo */
 }
 
+/* BOTÃO DE CARRINHO */
+
+#carrinho {
+    border: none;
+
+    background-color: #7b294d;
+
+    color: white;
+
+    padding: 14px 25px;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#carrinho:hover {
+    background-color: #5e1e39;
+
+    transform: scale(1.03);
+}
+
 /* BOTÃO REINICIAR */
 
 #restart {
