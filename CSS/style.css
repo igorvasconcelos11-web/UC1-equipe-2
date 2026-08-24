@@ -1,0 +1,95 @@
+.footer {     
+display: flex;
+width: 100%;
+height: 209px;
+padding: 19px 86px;
+justify-content: space-between;
+align-items: center;
+flex-shrink: 0;
+background-color: #E1ECF4;
+}
+
+
+
+/* Logo do footer */
+
+.footer-esquerda {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-around;
+    
+}
+
+.footer-esquerda img {
+    width: 317.272px;
+    height: 116px;
+    margin-bottom: 3px;
+    
+}
+
+.footer-esquerda p {
+    font-size: 18px;
+    color: #000;
+    font-family: verdana;
+    width: 540px;
+    padding-left: 30px;
+    margin-top: -5px;
+}
+
+/* Redes */
+
+.redes {
+    margin-right: 80px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.redes > span {
+    font-size: 24px;
+    text-align: left;
+    color: #000;
+    font-family: verdana;
+    margin-right: 86px;
+
+}
+
+
+/* Ícones */
+
+.icones {
+    display: flex;
+    margin-right: 86px;
+    gap: 9px;
+    display: flex;
+
+}
+
+.icones a {
+    width: 20px;
+
+    height: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-decoration: none;
+
+    color: white;
+
+    border-radius: 3px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    margin-right:20px ;
+}
