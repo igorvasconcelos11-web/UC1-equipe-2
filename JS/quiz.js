@@ -115,7 +115,7 @@ function showResult() {
 
     else if (highestScore === scores.morango) {
 
-        resultTitle.textContent = "🍓 Mochi Mulan de Morango! 🍓";
+        resultTitle.textContent = "🍓 Mochi de Morango da Mulan! 🍓";
 
         resultDescription.textContent =
             "Você é doce, romântico e cheio de personalidade. Uma combinação perfeita de leveza e sabor!";
@@ -128,20 +128,20 @@ function showResult() {
 
     else if (highestScore === scores.coco) {
 
-        resultTitle.textContent = "🍩 Penelope Dunet! 🍩";
+        resultTitle.textContent = "🍩 Vanellope Dunet! 🍩";
 
         resultDescription.textContent =
             "Você é carinhoso, divertido e adora deixar tudo mais especial. Tem aquele jeitinho doce que conquista todo mundo!";
 
         resultImage.src = "imagens quiz/dunet.png";
         resultImage.alt = "Penelope Dunet";
-        resultCharacter.src = "imagens quiz/penelope.png";
-        resultCharacter.alt = "Penelope";
+        resultCharacter.src = "imagens quiz/vanellope.png";
+        resultCharacter.alt = "Vanellope";
     }
 
     else {
 
-        resultTitle.textContent = "🍎 Maça Neve do Amor! 🍎";
+        resultTitle.textContent = "🍎 Maça do Amor Branca de Neve! 🍎";
 
         resultDescription.textContent =
             "Você é criativo, refrescante e cheio de personalidade. Uma pessoa que definitivamente não passa despercebida!";
