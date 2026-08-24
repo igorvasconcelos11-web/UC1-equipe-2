@@ -43,9 +43,13 @@ body {
 
     padding: 0 80px;
 
-    background-color: #f5f7fc;
+    background-color: #fcfdff;
+
+    flex-direction: row;
 
 }
+
+
 
 
 /* Logo */
