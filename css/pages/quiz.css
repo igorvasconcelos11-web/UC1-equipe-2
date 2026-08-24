@@ -1,0 +1,198 @@
+/* ==============================
+   Quiz Mágico do Sabor
+   ============================== */
+
+.quiz-page {
+  background: linear-gradient(135deg, #ffe5ec, #fff1d6);
+}
+
+.quiz-main {
+  min-height: 700px;
+  padding: 54px var(--site-page-gutter) 70px;
+  display: grid;
+  place-items: center;
+}
+
+.quiz-card {
+  width: min(680px, 100%);
+  padding: clamp(28px, 5vw, 48px);
+  border: 1px solid rgb(123 41 77 / 9%);
+  border-radius: 28px;
+  background: rgb(255 255 255 / 95%);
+  box-shadow: 0 18px 45px rgb(95 50 69 / 14%);
+  text-align: center;
+}
+
+.quiz-eyebrow {
+  margin: 0 0 6px;
+  color: #a34d78;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.quiz-card > h1 {
+  margin: 0 0 22px;
+  color: #6f294e;
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(32px, 5vw, 44px);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.quiz-progress {
+  height: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #f1dbe5;
+}
+
+.quiz-progress span {
+  width: 25%;
+  height: 100%;
+  display: block;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #e65c98, #8c52ff);
+  transition: width 320ms ease;
+}
+
+.quiz-counter {
+  margin: 8px 0 25px;
+  color: #8a7480;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.quiz-step,
+.quiz-result {
+  display: none;
+}
+
+.quiz-step.active,
+.quiz-result.show {
+  display: block;
+  animation: quiz-enter 320ms ease both;
+}
+
+.quiz-step h2 {
+  margin: 0 0 22px;
+  color: #352f35;
+  font-size: 21px;
+}
+
+.quiz-answer {
+  width: 100%;
+  margin: 7px 0;
+  padding: 14px 17px;
+  border: 2px solid #f1b6c8;
+  border-radius: 14px;
+  color: #5c3040;
+  background: #fff7fa;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: left;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.quiz-answer:hover,
+.quiz-answer:focus-visible {
+  border-color: #d85b83;
+  background: #f8d7e2;
+  transform: translateX(4px);
+}
+
+.quiz-result > p {
+  margin: 0 0 12px;
+  color: #675e64;
+  line-height: 1.55;
+}
+
+.quiz-result__media {
+  position: relative;
+  width: 250px;
+  height: 235px;
+  margin: 18px auto 28px;
+}
+
+.quiz-result__media [data-result-image] {
+  width: 220px;
+  height: 220px;
+  display: block;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 10px 25px rgb(66 36 48 / 18%);
+}
+
+.quiz-result__media [data-result-character] {
+  position: absolute;
+  z-index: 2;
+  right: -25px;
+  bottom: -5px;
+  width: 125px;
+  max-height: 175px;
+  object-fit: contain;
+  filter: drop-shadow(0 7px 8px rgb(46 26 35 / 30%));
+}
+
+.quiz-result h2 {
+  margin: 0 0 9px;
+  color: #762b50;
+  font-family: "DM Serif Display", serif;
+  font-size: 31px;
+  font-weight: 400;
+}
+
+.quiz-result__price {
+  display: block;
+  margin: 12px 0 20px;
+  color: #7d3fa9;
+  font-size: 24px;
+}
+
+.quiz-result__actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.quiz-result__actions button {
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.quiz-cart-button {
+  border: 0;
+  color: #fff;
+  background: #7b294d;
+}
+
+.quiz-restart-button {
+  border: 1px solid #d9c1cd;
+  color: #6b3b51;
+  background: #fff;
+}
+
+@keyframes quiz-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 560px) {
+  .quiz-main {
+    padding-block: 32px 45px;
+  }
+
+  .quiz-card {
+    padding: 26px 20px;
+  }
+
+  .quiz-result__actions {
+    flex-direction: column;
+  }
+}

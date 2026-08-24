@@ -1,0 +1,103 @@
+/* ==============================
+   Base compartilhada do site
+   ============================== */
+
+@import url("./components/navbar.css");
+@import url("./components/footer.css");
+@import url("./components/cart.css");
+
+:root {
+  --brand-blue: #3aa2d8;
+  --brand-purple: #8c52ff;
+  --brand-purple-dark: #511d78;
+  --site-background: #fbf8fc;
+  --site-footer: #e1ecf4;
+  --site-text: #171717;
+  --site-page-gutter: clamp(20px, 5.55vw, 80px);
+  --site-page-max-width: 1440px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  color: var(--site-text);
+  background: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.site-main {
+  min-height: calc(100vh - 280px);
+}
+
+.site-toast {
+  position: fixed;
+  z-index: 1000;
+  right: 20px;
+  bottom: 20px;
+  max-width: min(340px, calc(100% - 40px));
+  padding: 12px 18px;
+  border-radius: 999px;
+  color: #fff;
+  background: #392f3c;
+  box-shadow: 0 8px 24px rgb(32 23 39 / 28%);
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.site-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 1100;
+  top: 8px;
+  left: 8px;
+  padding: 10px 14px;
+  color: #fff;
+  background: #511d78;
+  border-radius: 6px;
+  transform: translateY(-160%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

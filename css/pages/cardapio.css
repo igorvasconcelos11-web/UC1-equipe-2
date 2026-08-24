@@ -1,0 +1,406 @@
+/* =========================================
+   VARIÁVEIS GLOBAIS (Cores e Temas)
+   ========================================= */
+:root {
+    --accent: #49c5f7; /* Cor principal de destaque (Azul por padrão) */
+    --accent-rgb: 73, 197, 247; /* Versão RGB para usar com opacidade (rgba) */
+    --ink: #151120; /* Cor do texto escuro */
+    --paper: #fffaff; /* Cor de fundo principal (quase branco) */
+    --panel: #ebe8ed; /* Cor de fundo secundária para painéis */
+}
+
+/* Reset básico para todos os elementos */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    background: var(--panel);
+    color: var(--ink);
+    font-family: Nunito, Arial, sans-serif;
+}
+
+/* =========================================
+   CONTAINER PRINCIPAL
+   ========================================= */
+.menu-container {
+    max-width: 1440px;
+    min-height: 100vh;
+    margin: auto;
+    overflow: hidden;
+    background: var(--paper);
+}
+
+/* =========================================
+   ABAS DE NAVEGAÇÃO (Todos, Frios, Quentes)
+   ========================================= */
+.tabs-container {
+    height: 59px;
+    display: flex;
+    justify-content: center;
+    gap: 27px;
+    align-items: center;
+    background: #eaf6fc;
+}
+
+.tab {
+    height: 100%;
+    border: 0;
+    cursor: pointer;
+    color: #5e5970;
+    background: transparent;
+    padding: 0 3px;
+    font: 800 12px Nunito, sans-serif;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.25s, background 0.25s;
+}
+
+/* Linha inferior animada da aba */
+.tab::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    left: 50%;
+    bottom: 7px;
+    background: var(--accent);
+    transition: width 0.28s ease, left 0.28s ease;
+}
+
+/* Estado Ativo da Aba */
+.tab.active {
+    color: var(--accent);
+    background: rgba(var(--accent-rgb), 0.13);
+}
+
+.tab.active::after {
+    width: 32px;
+    left: calc(50% - 16px);
+}
+
+/* =========================================
+   SEÇÃO DE DESTAQUE (HERO) E IMAGEM CENTRAL
+   ========================================= */
+.hero-section {
+    height: 330px;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5.7%;
+    background: #9ba4ad;
+    transition: background 0.45s ease;
+}
+
+/* Gradientes e texturas de fundo da área de destaque */
+.hero-section::before,
+.hero-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(circle at 50% 48%, rgba(var(--accent-rgb), 0.29), transparent 31%), 
+                linear-gradient(125deg, transparent 20%, rgba(255,255,255,0.13) 20.2%, transparent 20.6%, transparent 61%, rgba(255,255,255,0.12) 61.3%, transparent 61.7%);
+}
+
+.hero-section::after {
+    opacity: 0.6;
+    background: repeating-linear-gradient(35deg, transparent 0 42px, rgba(255,255,255,0.09) 43px 44px, transparent 45px 88px);
+}
+
+/* Círculos decorativos atrás da imagem */
+.hero-orbit {
+    position: absolute;
+    width: 35vw;
+    max-width: 450px;
+    aspect-ratio: 1;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+    z-index: -1;
+}
+.orbit-left { left: 15%; }
+.orbit-right { right: 15%; transform: scale(0.64); }
+
+/* Moldura da imagem do produto */
+.main-image-container {
+    width: clamp(300px, 30vw, 390px);
+    height: clamp(250px, 25vw, 310px);
+    flex: 0 0 auto;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 21px;
+    border: 2px solid var(--accent);
+    background: #191522;
+    box-shadow: 0 0 25px rgba(var(--accent-rgb), 0.9);
+    transition: transform 0.34s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.main-image-container img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: opacity 0.2s ease, transform 0.38s ease;
+}
+
+/* Efeito de zoom ao passar o mouse na imagem principal */
+.main-image-container:hover img {
+    transform: scale(1.04);
+}
+
+/* Botões de avançar/voltar no carrossel */
+.nav-btn {
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+    color: var(--accent);
+    background: #34303d;
+    font: 400 30px/28px Arial;
+    transition: transform 0.2s, background 0.2s, color 0.2s;
+}
+
+.nav-btn:hover, .nav-btn:focus-visible {
+    transform: scale(1.12);
+    color: #fff;
+    background: var(--accent);
+    outline: 0;
+}
+
+/* =========================================
+   INFORMAÇÕES DO PRODUTO (Textos e Preço)
+   ========================================= */
+.product-info-section {
+    min-height: 116px;
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 8px 5.7% 13px;
+    background: var(--paper);
+}
+
+.info-left {
+    max-width: 680px;
+}
+
+.category-tag, .thumbnails-title {
+    margin: 0;
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.category-tag {
+    margin-bottom: 6px;
+}
+
+.product-title {
+    margin: 0 0 7px;
+    color: var(--accent);
+    font-size: 29px;
+    line-height: 1.05;
+    letter-spacing: -1.2px;
+    font-weight: 900;
+    transition: color 0.35s;
+}
+
+.product-desc {
+    margin: 0;
+    color: #2f2a38;
+    font-size: 10px;
+    line-height: 1.45;
+}
+
+.info-right {
+    min-width: 250px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.counter {
+    align-self: center;
+    margin: 0 0 3px;
+    color: var(--accent);
+    font: 900 14px Nunito, sans-serif;
+}
+
+.price-container {
+    margin: 0 0 8px;
+    color: #2d2737;
+    font-size: 12px;
+}
+
+.price-value {
+    margin-left: 6px;
+    color: var(--accent);
+    font-size: 25px;
+    line-height: 1;
+    transition: color 0.35s;
+}
+
+/* Botão "Adicionar ao Pedido" */
+.btn-add {
+    width: 222px;
+    height: 34px;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    background: var(--accent);
+    color: #110e15;
+    font: 900 11px Nunito, sans-serif;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(var(--accent-rgb), 0.23);
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.btn-add:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+}
+
+.btn-add:active {
+    transform: translateY(1px);
+}
+
+.order-feedback {
+    height: 10px;
+    margin: 2px 0 0;
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 800;
+}
+
+/* =========================================
+   MINIATURAS (Produtos na parte inferior)
+   ========================================= */
+.thumbnails-section {
+    min-height: 89px;
+    padding: 10px 5.7% 18px;
+    background: #e9e6eb;
+}
+
+.thumbnails-title {
+    margin-bottom: 7px;
+    color: #656071;
+    font-size: 8px;
+}
+
+.thumbnails-list {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) transparent;
+    padding-bottom: 2px;
+}
+
+.thumb-card {
+    width: calc((100% - 30px) / 4);
+    min-width: 150px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 3px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    flex: 0 0 auto;
+    overflow: hidden;
+    color: #fff;
+    background: #14111d;
+    text-align: left;
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+
+.thumb-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Miniatura do produto atualmente selecionado */
+.thumb-card.active {
+    border-color: var(--accent);
+    box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.55);
+}
+
+.thumb-img {
+    width: 32px;
+    height: 28px;
+    border-radius: 3px;
+    object-fit: cover;
+    flex: 0 0 auto;
+}
+
+.thumb-info h2, .thumb-info p {
+    margin: 0;
+}
+
+.thumb-info h2 {
+    color: #ddd9e1;
+    font-size: 8px;
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+.thumb-card.active .thumb-info h2 {
+    color: var(--accent);
+}
+
+.thumb-info p {
+    color: #77717f;
+    font-size: 8px;
+}
+
+/* =========================================
+   ANIMAÇÕES DE TRANSIÇÃO (Ao trocar de produto)
+   ========================================= */
+.is-changing {
+    opacity: 0;
+    transform: scale(0.94) translateY(5px);
+}
+
+.main-image-container.is-changing {
+    transform: scale(0.92);
+}
+
+.product-title.is-changing, .price-value.is-changing {
+    transform: translateX(12px);
+}
+
+.product-desc.is-changing, .counter.is-changing, .category-tag.is-changing {
+    transform: translateX(-10px);
+}
+
+/* =========================================
+   RESPONSIVIDADE (Telas menores/Celulares)
+   ========================================= */
+@media(max-width: 650px) {
+    .tabs-container { gap: 16px; }
+    .hero-section { height: 300px; padding: 0 18px; }
+    .main-image-container {
+        width: min(66vw, 280px);
+        height: min(55vw, 232px);
+    }
+    .product-info-section {
+        padding: 14px 20px;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .info-left { max-width: none; }
+    .info-right { align-items: stretch; min-width: 0; }
+    .counter { align-self: flex-end; }
+    .price-container { text-align: right; }
+    .btn-add { width: 100%; }
+    .thumbnails-section { padding: 12px 20px 18px; }
+    .product-title { font-size: 27px; }
+}

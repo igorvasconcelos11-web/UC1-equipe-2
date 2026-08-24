@@ -1,0 +1,198 @@
+/* ==============================
+   Sobre Nós
+   ============================== */
+
+.about-page {
+  background: #fff;
+}
+
+.about-hero {
+  position: relative;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--brand-blue);
+}
+
+.about-hero__content {
+  position: relative;
+  z-index: 2;
+  width: 520px;
+  margin: 0;
+  color: #fff;
+  font-family: "DM Serif Display", serif;
+  text-align: left;
+}
+
+.about-hero__content span {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.about-hero__content h1 {
+  margin: 0;
+  font-size: clamp(38px, 3.25vw, 52px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.about-hero__emotions,
+.about-hero__donut,
+.about-hero__characters {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  height: auto;
+}
+
+.about-hero__emotions {
+  left: max(20px, calc(50% - 670px));
+  bottom: 0;
+  width: 310px;
+}
+
+.about-hero__donut {
+  top: -54px;
+  right: max(-42px, calc(50% - 760px));
+  width: 260px;
+  transform: rotate(-8deg);
+}
+
+.about-hero__characters {
+  right: max(165px, calc(50% - 510px));
+  bottom: 3px;
+  width: 185px;
+  opacity: 0.78;
+}
+
+.about-story {
+  position: relative;
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--site-background);
+}
+
+.about-story__cupcake {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  height: auto;
+}
+
+.about-story__text {
+  width: 565px;
+  margin: 0 auto;
+  padding: 36px 0;
+  text-align: left;
+}
+
+.about-story__text p {
+  margin: 0;
+  color: var(--brand-purple-dark);
+  font-family: "DM Serif Display", serif;
+  font-size: 20px;
+  line-height: 1.23;
+}
+
+.about-story__text p + p {
+  margin-top: 24px;
+}
+
+@media (max-width: 900px) {
+  .about-hero__content {
+    width: 390px;
+    margin: 0;
+  }
+
+  .about-hero__emotions {
+    left: -20px;
+    width: 270px;
+  }
+
+  .about-hero__donut {
+    right: -70px;
+  }
+
+  .about-hero__characters {
+    display: none;
+  }
+
+  .about-story__cupcake {
+    width: 150px;
+  }
+
+  .about-story__text {
+    width: min(565px, calc(100% - 260px));
+  }
+}
+
+@media (max-width: 700px) {
+  .about-hero {
+    height: 360px;
+    align-items: flex-start;
+  }
+
+  .about-hero__content {
+    width: 100%;
+    margin: 28px 0 0;
+    padding-inline: var(--site-page-gutter);
+    text-align: center;
+  }
+
+  .about-hero__content span {
+    font-size: 16px;
+  }
+
+  .about-hero__content h1 {
+    font-size: 36px;
+  }
+
+  .about-hero__emotions {
+    left: -10px;
+    width: 240px;
+  }
+
+  .about-hero__donut {
+    top: auto;
+    right: -50px;
+    bottom: -45px;
+    width: 200px;
+  }
+
+  .about-story {
+    min-height: 440px;
+    align-items: flex-start;
+  }
+
+  .about-story__cupcake {
+    width: 150px;
+  }
+
+  .about-story__text {
+    width: auto;
+    margin: 0;
+    padding: 38px var(--site-page-gutter) 165px;
+  }
+
+  .about-story__text p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  .about-hero__emotions {
+    width: 205px;
+  }
+
+  .about-hero__donut {
+    width: 175px;
+  }
+}

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Doce Rush: confeitaria artesanal inspirada em histórias mágicas.">
+    <title>Doce Rush</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/pages/home.css">
+    <script defer src="js/components/site-shell.js"></script>
+    <script defer src="js/components/cart.js"></script>
+    <script defer src="js/main.js"></script>
+    <script defer src="js/pages/home.js"></script>
+  </head>
+  <body class="home-page" data-page="home">
+    <doce-navbar></doce-navbar>
+
+    <main id="conteudo" class="site-main">
+      <!-- Hero -->
+      <section class="home-hero" aria-labelledby="home-title">
+        <div class="home-hero__content">
+          <h1 id="home-title">O <span>Sabor Excepcional</span><br>que Você Merece</h1>
+          <a class="home-primary-button" href="pages/cardapio.html">Explorar o cardápio completo</a>
+          <div class="home-customizer-callout">
+            <p><strong>Nova experiência: <span>Monte seu próprio doce!</span></strong>Escolha a base, o recheio, a cobertura e os toppings do seu jeito.</p>
+            <a href="pages/monte-seu-doce.html">Começar minha criação</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured products -->
+      <section class="home-products" aria-labelledby="featured-title">
+        <div class="home-products__heading">
+          <div>
+            <h2 id="featured-title">Nossos Doces Mais Pedidos</h2>
+            <p>Experimente o sabor incomparável da nossa confeitaria artesanal com um toque de encanto.</p>
+          </div>
+        </div>
+
+        <div class="home-carousel" aria-label="Carrossel dos doces mais pedidos">
+          <button class="home-carousel-arrow home-carousel-arrow--previous" type="button" data-carousel-direction="-1" aria-label="Ver doce anterior">←</button>
+          <div class="home-cards" id="featured-products-carousel" aria-label="Lista dos doces mais pedidos" tabindex="0">
+          <article class="home-card">
+            <div class="home-card__image"><img src="assets/products/donut-rosa.png" alt="Donut de morango inspirado em Detona Ralph"></div>
+            <h3>Donut de Morango</h3><strong class="home-price">R$ 9,00</strong>
+            <div class="home-rating" aria-label="5 estrelas, 151 avaliações">★★★★★ <small>(151)</small></div>
+            <button type="button" data-add-product="Donut de Morango" data-product-id="home-donut-morango" data-product-price="9" data-product-image="assets/products/donut-rosa.png">Adicionar ao pedido</button>
+          </article>
+          <article class="home-card">
+            <div class="home-card__image"><img src="assets/products/milkshake-frozen.png" alt="Milk-shake inspirado em Frozen"></div>
+            <h3>Milk-shake da Frozen</h3><strong class="home-price">R$ 16,00</strong>
+            <div class="home-rating" aria-label="5 estrelas, 142 avaliações">★★★★★ <small>(142)</small></div>
+            <button type="button" data-add-product="Milk-shake da Frozen" data-product-id="product-milkshake-frozen" data-product-price="16" data-product-image="assets/products/milkshake-frozen.png">Adicionar ao pedido</button>
+          </article>
+          <article class="home-card">
+            <div class="home-card__image"><img src="assets/products/cupcake-mel.png" alt="Cupcake de mel inspirado no Ursinho Pooh"></div>
+            <h3>Cupcake de Mel</h3><strong class="home-price">R$ 13,00</strong>
+            <div class="home-rating" aria-label="5 estrelas, 138 avaliações">★★★★★ <small>(138)</small></div>
+            <button type="button" data-add-product="Cupcake de Mel" data-product-id="product-cupcake-mel" data-product-price="13" data-product-image="assets/products/cupcake-mel.png">Adicionar ao pedido</button>
+          </article>
+          <article class="home-card">
+            <div class="home-card__image"><img src="assets/products/macaron-colorido.png" alt="Macaron inspirado em Divertida Mente"></div>
+            <h3>Macaron Colorido</h3><strong class="home-price">R$ 12,00</strong>
+            <div class="home-rating" aria-label="5 estrelas, 130 avaliações">★★★★★ <small>(130)</small></div>
+            <button type="button" data-add-product="Macaron Colorido" data-product-id="product-macaron-colorido" data-product-price="12" data-product-image="assets/products/macaron-colorido.png">Adicionar ao pedido</button>
+          </article>
+          <article class="home-card">
+            <div class="home-card__image"><img src="assets/products/brownie-mel.png" alt="Brownie de mel inspirado em Aladdin"></div>
+            <h3>Brownie de Mel</h3><strong class="home-price">R$ 14,00</strong>
+            <div class="home-rating" aria-label="5 estrelas, 128 avaliações">★★★★★ <small>(128)</small></div>
+            <button type="button" data-add-product="Brownie de Mel" data-product-id="product-brownie-mel" data-product-price="14" data-product-image="assets/products/brownie-mel.png">Adicionar ao pedido</button>
+          </article>
+          </div>
+          <button class="home-carousel-arrow home-carousel-arrow--next" type="button" data-carousel-direction="1" aria-label="Ver próximo doce">→</button>
+        </div>
+      </section>
+    </main>
+
+    <doce-footer></doce-footer>
+  </body>
+</html>

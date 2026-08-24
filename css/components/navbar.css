@@ -1,0 +1,146 @@
+/* ==============================
+   Global Navbar
+   Source of truth: Sobre Nós
+   ============================== */
+
+doce-navbar {
+  display: block;
+  min-height: 90px;
+  background: #fff;
+}
+
+.site-header {
+  width: 100%;
+  max-width: var(--site-page-max-width);
+  height: 90px;
+  margin: 0 auto;
+  padding-inline: var(--site-page-gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+.site-brand {
+  flex: 0 0 auto;
+}
+
+.site-brand img {
+  display: block;
+  width: 190px;
+  height: auto;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 38px;
+}
+
+.site-nav a {
+  position: relative;
+  color: #48414b;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 180ms ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible,
+.site-nav a[aria-current="page"] {
+  color: var(--brand-purple);
+}
+
+.site-nav a[aria-current="page"] {
+  font-weight: 700;
+}
+
+.site-cta {
+  flex: 0 0 auto;
+  padding: 12px 25px;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--brand-purple);
+  box-shadow: 0 6px 12px rgb(140 82 255 / 28%);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.site-cta:hover,
+.site-cta:focus-visible,
+.site-cta[aria-current="page"] {
+  background: #7440de;
+  transform: translateY(-1px);
+}
+
+/* Reserva na Home o mesmo espaço do CTA sem exibir outro botão. */
+.site-cta--placeholder {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    width: 100%;
+  }
+
+  .site-nav {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 700px) {
+  doce-navbar {
+    min-height: 104px;
+  }
+
+  .site-header {
+    height: auto;
+    min-height: 104px;
+    padding: 14px var(--site-page-gutter);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .site-brand img {
+    width: 145px;
+  }
+
+  .site-cta {
+    padding: 9px 14px;
+    font-size: 10px;
+  }
+
+  .site-cta--placeholder {
+    display: none;
+  }
+
+  .site-nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 22px;
+  }
+
+  .site-nav a {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-brand img {
+    width: 125px;
+  }
+
+  .site-nav {
+    gap: 12px;
+  }
+}

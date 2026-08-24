@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubra qual doce da Doce Rush combina com você.">
+    <title>Quiz Mágico do Sabor | Doce Rush</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/pages/quiz.css">
+    <script defer src="../js/components/site-shell.js"></script>
+    <script defer src="../js/components/cart.js"></script>
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/pages/quiz.js"></script>
+  </head>
+  <body class="quiz-page" data-page="quiz">
+    <doce-navbar></doce-navbar>
+
+    <main id="conteudo" class="site-main quiz-main">
+      <!-- Quiz de personalidade -->
+      <section class="quiz-card" aria-labelledby="quiz-title">
+        <p class="quiz-eyebrow">Quiz Mágico do Sabor</p>
+        <h1 id="quiz-title">Qual doce combina com você?</h1>
+        <div class="quiz-progress" aria-hidden="true"><span data-quiz-progress></span></div>
+        <p class="quiz-counter" data-quiz-counter>1 de 4</p>
+
+        <div class="quiz-questions">
+          <section class="quiz-step active" data-question="1">
+            <h2>Qual dessas cores você prefere?</h2>
+            <button class="quiz-answer" type="button" data-value="1">🟢 Verde</button>
+            <button class="quiz-answer" type="button" data-value="2">🔴 Vermelho</button>
+            <button class="quiz-answer" type="button" data-value="3">🔵 Azul</button>
+            <button class="quiz-answer" type="button" data-value="4">🟡 Amarelo</button>
+          </section>
+
+          <section class="quiz-step" data-question="2">
+            <h2>Qual bebida você prefere?</h2>
+            <button class="quiz-answer" type="button" data-value="1">🥛 Leite</button>
+            <button class="quiz-answer" type="button" data-value="2">🍵 Chá</button>
+            <button class="quiz-answer" type="button" data-value="3">🥤 Refrigerante</button>
+            <button class="quiz-answer" type="button" data-value="4">🧃 Suco</button>
+          </section>
+
+          <section class="quiz-step" data-question="3">
+            <h2>Qual estação você prefere?</h2>
+            <button class="quiz-answer" type="button" data-value="1">❄️ Inverno</button>
+            <button class="quiz-answer" type="button" data-value="2">🌸 Primavera</button>
+            <button class="quiz-answer" type="button" data-value="3">☀️ Verão</button>
+            <button class="quiz-answer" type="button" data-value="4">🍂 Outono</button>
+          </section>
+
+          <section class="quiz-step" data-question="4">
+            <h2>Qual estilo combina mais com você?</h2>
+            <button class="quiz-answer" type="button" data-value="1">😎 Clássico</button>
+            <button class="quiz-answer" type="button" data-value="2">❤️ Romântico</button>
+            <button class="quiz-answer" type="button" data-value="3">✨ Criativo</button>
+            <button class="quiz-answer" type="button" data-value="4">😋 Divertido</button>
+          </section>
+        </div>
+
+        <!-- Resultado recomendado -->
+        <section class="quiz-result" data-quiz-result aria-live="polite">
+          <p>O doce que mais combina com você é:</p>
+          <div class="quiz-result__media">
+            <img data-result-image src="../assets/products/cookie-chocolate.png" alt="">
+            <img data-result-character src="../assets/characters/tico-teco-cookie.png" alt="">
+          </div>
+          <h2 data-result-title></h2>
+          <p data-result-description></p>
+          <strong class="quiz-result__price" data-result-price></strong>
+          <div class="quiz-result__actions">
+            <button class="quiz-cart-button" type="button" data-quiz-add>Adicionar ao carrinho</button>
+            <button class="quiz-restart-button" type="button" data-quiz-restart>Fazer novamente</button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <doce-footer></doce-footer>
+  </body>
+</html>

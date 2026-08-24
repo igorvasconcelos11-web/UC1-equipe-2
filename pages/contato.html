@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre em contato com a Doce Rush, sua confeitaria de sabores encantados.">
+    <title>Contato | Doce Rush</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/pages/contato.css">
+    <script defer src="../js/components/site-shell.js"></script>
+    <script defer src="../js/components/cart.js"></script>
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/pages/contato.js"></script>
+  </head>
+  <body class="contact-page" data-page="contato">
+    <doce-navbar></doce-navbar>
+
+    <main id="conteudo" class="site-main">
+      <!-- Contact hero -->
+      <section class="contact-intro" aria-labelledby="contact-title">
+        <div class="contact-intro__content">
+          <p class="contact-eyebrow">Fale com a nossa equipe</p>
+          <h1 id="contact-title">Vamos criar um momento <span>mágico</span>?</h1>
+          <p class="contact-intro__text">Tem uma dúvida, quer encomendar uma celebração ou simplesmente contar qual sabor encantou você? Estamos prontos para ouvir.</p>
+        </div>
+        <img class="contact-intro__character" src="../assets/characters/contato-aladdin.png" alt="Aladdin">
+      </section>
+
+      <!-- Contact information and static form -->
+      <section class="contact-area" aria-label="Formulário e informações de contato">
+        <div class="contact-information">
+          <div class="contact-section-title">
+            <p class="contact-eyebrow">Onde nos encontrar</p>
+            <h2>O encanto está mais perto do que você imagina.</h2>
+          </div>
+
+          <div class="contact-list">
+            <a class="contact-item" href="mailto:ola@docerush.com.br">
+              <span class="contact-item__icon"><img src="../assets/icons/contato-email.png" alt=""></span>
+              <span><strong>E-mail</strong><small>ola@docerush.com.br</small></span>
+            </a>
+            <a class="contact-item" href="tel:+5511999999999">
+              <span class="contact-item__icon"><img src="../assets/icons/contato-telefone.png" alt=""></span>
+              <span><strong>Telefone</strong><small>(11) 99999-9999</small></span>
+            </a>
+            <div class="contact-item">
+              <span class="contact-item__icon"><img src="../assets/icons/contato-local.png" alt=""></span>
+              <span><strong>Visite a loja</strong><small>Rua Tito, 54 — Vila Romana · São Paulo, SP</small></span>
+            </div>
+          </div>
+
+          <div class="contact-hours">
+            <strong>Horário de atendimento</strong>
+            <p>Segunda a sábado <span>10h às 19h</span></p>
+            <p>Domingos e feriados <span>11h às 17h</span></p>
+          </div>
+        </div>
+
+        <form class="contact-form" action="#" method="post" novalidate>
+          <div class="contact-form__heading">
+            <h2>Envie uma mensagem</h2>
+            <p>Respondemos com carinho em até 1 dia útil.</p>
+          </div>
+
+          <div class="contact-form__row">
+            <label for="nome">Seu nome
+              <input type="text" id="nome" name="nome" placeholder="Como podemos chamar você?" required>
+            </label>
+            <label for="email">Seu e-mail
+              <input type="email" id="email" name="email" placeholder="voce@email.com" required>
+            </label>
+          </div>
+
+          <label for="assunto">Assunto
+            <select id="assunto" name="assunto" required>
+              <option value="" selected disabled>Escolha uma opção</option>
+              <option value="encomenda">Quero fazer uma encomenda</option>
+              <option value="duvida">Tenho uma dúvida</option>
+              <option value="evento">Festa ou evento</option>
+              <option value="outro">Outro assunto</option>
+            </select>
+          </label>
+
+          <label for="mensagem">Mensagem
+            <textarea id="mensagem" name="mensagem" rows="5" placeholder="Conte para nós como podemos ajudar..." required></textarea>
+          </label>
+
+          <button class="contact-submit" type="submit">Enviar mensagem <span aria-hidden="true">→</span></button>
+          <p class="contact-success" role="status" aria-live="polite" hidden>Mensagem validada com sucesso! Este protótipo não envia dados para um servidor.</p>
+        </form>
+      </section>
+    </main>
+
+    <doce-footer></doce-footer>
+  </body>
+</html>

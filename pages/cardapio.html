@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore o cardápio de doces artesanais da Doce Rush.">
+    <title>Cardápio | Doce Rush</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/pages/cardapio.css">
+    <link rel="stylesheet" href="../css/pages/cardapio-assets.css">
+    <script defer src="../js/components/site-shell.js"></script>
+    <script defer src="../js/components/cart.js"></script>
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/pages/cardapio.js"></script>
+  </head>
+  <body class="menu-page" data-page="cardapio">
+    <doce-navbar></doce-navbar>
+
+    <main id="conteudo" class="site-main menu-container" aria-live="polite">
+      <!-- Product category navigation -->
+      <nav class="tabs-container" aria-label="Categorias do cardápio">
+        <button class="tab" data-category="todos" type="button">Todos</button>
+        <button class="tab active" data-category="frios" type="button">Frios</button>
+        <button class="tab" data-category="quentes" type="button">Quentes</button>
+      </nav>
+
+      <aside class="quiz-invite" aria-label="Ajuda para escolher um doce">
+        <span class="quiz-invite-icon" aria-hidden="true">✦</span>
+        <p><strong>Quer uma ajudinha para escolher?</strong> Faça o Quiz Mágico do Sabor e receba uma sugestão feita para você.</p>
+        <a class="quiz-invite-button" href="quiz.html">Fazer o quiz</a>
+      </aside>
+
+      <div class="product-showcase">
+        <!-- Featured product media -->
+        <section class="hero-section" id="hero-section" aria-label="Produto em destaque">
+          <button class="nav-btn" id="btn-prev" type="button" aria-label="Produto anterior">‹</button>
+          <div class="hero-orbit orbit-left"></div>
+          <div class="hero-orbit orbit-right"></div>
+          <div class="main-image-container media-composition">
+            <img id="main-image" src="../assets/products/sorvete-blue-ice.png" alt="Sorvete Blue Ice">
+            <img id="character-image" class="character-image" src="../assets/characters/lilo-stitch-sorvete.png" alt="Personagem relacionado ao produto">
+          </div>
+          <button class="nav-btn" id="btn-next" type="button" aria-label="Próximo produto">›</button>
+        </section>
+
+        <!-- Featured product information -->
+        <section class="product-info-section">
+          <div class="info-left">
+            <p class="category-tag" id="category-tag">Categoria frios</p>
+            <h1 class="product-title" id="product-title">Sorvete Blue Ice</h1>
+            <p class="product-desc" id="product-desc">Sorvete azul cremoso inspirado em Lilo & Stitch, com uma apresentação gelada e divertida.</p>
+          </div>
+          <div class="info-right">
+            <p class="counter" id="product-counter">01/04</p>
+            <p class="price-container">Preço <strong class="price-value" id="product-price">R$ 14,00</strong></p>
+            <button class="btn-add" id="btn-add" type="button"><span aria-hidden="true">🛒</span> Adicionar ao pedido</button>
+            <p class="order-feedback" id="order-feedback" role="status"></p>
+          </div>
+        </section>
+      </div>
+
+      <section class="thumbnails-section">
+        <p class="thumbnails-title">Itens disponíveis na categoria</p>
+        <div class="thumbnails-list" id="thumbnails-container" aria-label="Lista de produtos"></div>
+      </section>
+    </main>
+
+    <doce-footer></doce-footer>
+  </body>
+</html>

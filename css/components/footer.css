@@ -1,0 +1,79 @@
+/* ==============================
+   Global Footer
+   Source of truth: Sobre Nós
+   ============================== */
+
+doce-footer {
+  display: block;
+}
+
+.site-footer {
+  min-height: 190px;
+  padding-block: 22px;
+  padding-inline: max(var(--site-page-gutter), calc((100% - var(--site-page-max-width)) / 2 + var(--site-page-gutter)));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background: var(--site-footer);
+  font-family: "Poppins", sans-serif;
+}
+
+.site-footer__brand img {
+  display: block;
+  width: 205px;
+  height: auto;
+  margin-bottom: 2px;
+}
+
+.site-footer__brand p {
+  max-width: 520px;
+  margin: 0;
+  color: #171717;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.site-footer__social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.site-footer__social h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.site-footer__icons {
+  display: flex;
+  gap: 11px;
+}
+
+.site-footer__icons a,
+.site-footer__icons img {
+  display: block;
+  width: 25px;
+  height: 25px;
+}
+
+.site-footer__icons a:focus-visible {
+  outline: 3px solid var(--brand-purple);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (max-width: 700px) {
+  .site-footer {
+    padding: 28px var(--site-page-gutter);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+
+  .site-footer__social {
+    align-items: flex-start;
+  }
+}
