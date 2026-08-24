@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
       renderThumbnails(); if (els.character.complete) fitCharacter(); if (animate) fade.forEach(element => element.classList.remove('is-changing')); changing = false;
     }, animate ? 220 : 0);
   }
-  function setCategory(nextCategory) { category = nextCategory; index = nextCategory === 'todos' ? products.findIndex(product => product.featured) : 0; applyTheme(); document.querySelectorAll('.tab').forEach(tab => tab.classList.toggle('active', tab.dataset.category === category)); showProduct(index, false); }
+  function setCategory(nextCategory, selectedProduct = null) { category = nextCategory; index = selectedProduct ? Math.max(0, visibleProducts().indexOf(selectedProduct)) : nextCategory === 'todos' ? products.findIndex(product => product.featured) : 0; applyTheme(); document.querySelectorAll('.tab').forEach(tab => tab.classList.toggle('active', tab.dataset.category === category)); showProduct(index, false); }
   function pulseArrow(button, direction) { button.style.transform = `scale(.9) translateX(${direction * 4}px)`; window.setTimeout(() => { button.style.transform = ''; }, 170); }
   document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => setCategory(tab.dataset.category)));
   document.querySelector('#btn-next').addEventListener('click', event => { pulseArrow(event.currentTarget, 1); showProduct((index + 1) % visibleProducts().length); });
